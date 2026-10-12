@@ -8,7 +8,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
-// Priority 4 — Updated Default Meta (Homepage) & Hreflang Tag Alternates
 export const metadata: Metadata = {
   title: "AscendantOps — B2B AI Search Visibility & GEO Agency",
   description:
@@ -30,7 +29,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Priority 4 — JSON-LD Structured Data covering 30+ Countries in areaServed
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -38,8 +37,11 @@ export default function RootLayout({
     "image": "https://ascendantops.com/logo.png",
     "@id": "https://ascendantops.com/#organization",
     "url": "https://ascendantops.com",
-    "telephone": "",
+    "telephone": "+1-437-475-3637",
     "priceRange": "$$",
+    "sameAs": [
+      "https://www.linkedin.com/in/ascendant-ops-0228a7439"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Toronto",
@@ -118,8 +120,7 @@ export default function RootLayout({
                 <rect x="79" y="56" width="6" height="6" fill="#00D2FF" />
                 <rect x="63" y="64" width="6" height="6" fill="#00D2FF" className="animate-pulse" />
               </svg>
-              <span className="text-xl font-bold tracking-wider text-white hover:text-brand-cyan transition-colors">
-                ASCENDANT<span className="text-brand-cyan">OPS</span>
+              <span className="text-xl font-bold tracking-wider text-white hover:text-brand-cyan transition-colors">Ascendant<span className="text-brand-cyan">OPS</span>
               </span>
             </Link>
             <nav className="hidden md:flex space-x-6 text-sm font-medium tracking-wide">
@@ -139,7 +140,7 @@ export default function RootLayout({
 
         <main className="flex-grow">{children}</main>
 
-        <footer className="w-full py-16 px-6 border-t border-white/5 bg-brand-dark text-center text-xs text-white/40">
+        <footer className="w-full py-16 px-6 border-t border-white/5 bg-brand-dark text-center text-xs text-white/55">
           <div className="max-w-7xl mx-auto flex flex-col justify-center items-center">
             <div className="mb-8 flex justify-center items-center">
               <img src="/logo.png" alt="AscendantOps Master Logo" className="h-24 w-auto object-contain opacity-80" />

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Pricing() {
   return (
     <div className="w-full py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-24">
-      {/* Header */}
+      
       <section className="text-center max-w-3xl mx-auto space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
           Simple, <span className="text-brand-cyan">Transparent Pricing</span>
@@ -13,17 +13,17 @@ export default function Pricing() {
         </p>
       </section>
 
-      {/* SECTION 1: GEO AUDITS (One-Time) */}
+      
       <section className="space-y-8">
-        <h2 className="text-xl font-bold tracking-wider uppercase text-center text-brand-cyan">
+        <h2 className="text-xl font-bold text-center text-white tracking-tight">
           1. One-Time GEO Audits
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Basic */}
+          
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-xl font-bold mb-2">Basic Audit</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$150 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$150 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Full written report on your AI search visibility</li>
                 <li className="flex items-center gap-2">✓ Scored across the five platforms your customers use most to find businesses</li>
@@ -37,11 +37,11 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Standard */}
+          
           <div className="glass p-8 rounded-lg border border-brand-cyan/30 flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-xl font-bold mb-2">Technical Implementation</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$500 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$500 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Everything in the Basic Audit</li>
                 <li className="flex items-center gap-2">✓ We fix the issues found — no action required from you or your team</li>
@@ -55,11 +55,11 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Premium */}
+          
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-xl font-bold mb-2">Sovereign Transformation</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$1,500 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$1,500 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Everything in Basic and Standard</li>
                 <li className="flex items-center gap-2">✓ Your website content rewritten so AI platforms recommend you by name</li>
@@ -75,21 +75,21 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* SECTION 2: AI BUSINESS ASSESSMENTS (One-Time) */}
+      
       <section className="space-y-8 border-t border-white/5 pt-16">
-        <h2 className="text-xl font-bold tracking-wider uppercase text-center text-brand-cyan">
-          2. AI Business Assessments (Layman Friendly)
+        <h2 className="text-xl font-bold text-center text-white tracking-tight">
+          2. AI Business Assessments
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Operations Assessment */}
+          
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-xl font-bold mb-2">Operations Assessment</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$500 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$500 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
-                <li className="flex items-center gap-2">✓ A full review of how your business currently handles customer communication, follow-ups, and repetitive internal tasks</li>
-                <li className="flex items-center gap-2">✓ Identification of every software subscription you could eliminate or reduce</li>
-                <li className="flex items-center gap-2">✓ A prioritized list of automation opportunities ranked by time saved and cost impact</li>
+                <li className="flex items-center gap-2">✓ A full review of how your business handles customer messages, follow-ups, and repetitive tasks</li>
+                <li className="flex items-center gap-2">✓ Every software subscription you could cut or reduce</li>
+                <li className="flex items-center gap-2">✓ A ranked list of automation chances, sorted by time saved and cost</li>
                 <li className="flex items-center gap-2">✓ Written action plan delivered within 48 hours</li>
               </ul>
             </div>
@@ -98,18 +98,18 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Full Autonomous Audit */}
+          
           <div className="glass p-8 rounded-lg border border-brand-cyan/30 flex flex-col justify-between glass-hover shadow-[0_0_20px_rgba(0,210,255,0.05)]">
-            <span className="absolute -top-3 right-6 bg-brand-cyan text-brand-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">Popular</span>
+            <span className="absolute -top-3 right-6 bg-brand-cyan text-brand-navy text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded">Popular</span>
             <div>
               <h3 className="text-xl font-bold mb-2">Full Autonomous Audit</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$1,000 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$1,000 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Everything in the Operations Assessment</li>
-                <li className="flex items-center gap-2">✓ We go deeper — mapping out a complete automation system tailored to your business</li>
-                <li className="flex items-center gap-2">✓ A step-by-step build plan your team can follow, or we execute it entirely for you</li>
-                <li className="flex items-center gap-2">✓ Tools recommended that you own outright — no ongoing subscription fees attached</li>
-                <li className="flex items-center gap-2">✓ A 30-minute walkthrough call included to explain every recommendation</li>
+                <li className="flex items-center gap-2">✓ We go deeper and map out a full automation system for your business</li>
+                <li className="flex items-center gap-2">✓ A step-by-step plan your team can follow. Or we build it for you.</li>
+                <li className="flex items-center gap-2">✓ Tools you own outright, with no ongoing fees</li>
+                <li className="flex items-center gap-2">✓ A 30-minute call to walk you through every recommendation</li>
               </ul>
             </div>
             <a href="https://buy.stripe.com/aFadR9dvFeWs19Y4dldUY04" target="_blank" rel="noopener noreferrer" className="w-full text-center py-3 bg-brand-cyan text-brand-navy hover:bg-white hover:text-brand-navy text-xs font-bold tracking-wider uppercase rounded transition-all duration-300">
@@ -119,17 +119,17 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* SECTION 3: CAPITAL & BENEFIT AUDITS (One-Time) */}
+      
       <section className="space-y-8 border-t border-white/5 pt-16">
-        <h2 className="text-xl font-bold tracking-wider uppercase text-center text-brand-cyan">
+        <h2 className="text-xl font-bold text-center text-white tracking-tight">
           3. Capital & Benefit Audits (One-Time)
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1: Government + Tax Discovery */}
+          
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-xl font-bold mb-2">Government & Tax Discovery</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$297 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$297 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Every qualifying government grant identified</li>
                 <li className="flex items-center gap-2">✓ Federal + provincial/state programs</li>
@@ -143,11 +143,11 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Card 2: Technology Benefits Discovery */}
+          
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-xl font-bold mb-2">Technology Benefits Discovery</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$197 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$197 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Every qualifying cloud credit program matched</li>
                 <li className="flex items-center gap-2">✓ AI API credit programs matched</li>
@@ -161,12 +161,12 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Card 3: Complete Capital Audit */}
+          
           <div className="glass p-8 rounded-lg border-2 border-brand-cyan/40 flex flex-col justify-between relative glass-hover shadow-[0_0_20px_rgba(0,210,255,0.05)]">
-            <span className="absolute -top-3 right-6 bg-brand-cyan text-brand-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">Recommended</span>
+            <span className="absolute -top-3 right-6 bg-brand-cyan text-brand-navy text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded">Recommended</span>
             <div>
               <h3 className="text-xl font-bold mb-2">Complete Capital Audit</h3>
-              <p className="text-brand-cyan text-2xl font-bold mb-6">$397 <span className="text-xs text-white/40 font-light">one-time</span></p>
+              <p className="text-brand-cyan text-2xl font-bold mb-6">$397 <span className="text-xs text-white/55 font-light">one-time</span></p>
               <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
                 <li className="flex items-center gap-2">✓ Everything in both Discovery modules</li>
                 <li className="flex items-center gap-2">✓ Unified priority score (value × ease × speed)</li>
@@ -182,76 +182,76 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Execution Add-Ons Grid (Directly Below Cards) */}
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
-          {/* Guided Application */}
+          
           <div className="glass p-6 rounded-lg flex flex-col justify-between glass-hover border border-white/5">
             <div>
               <h4 className="font-bold text-white mb-2">Guided Application</h4>
-              <p className="text-brand-cyan text-lg font-bold mb-4">$497 <span className="text-xs text-white/40 font-light">one-time</span></p>
-              <p className="text-white/60 font-light text-xs mb-4">We complete the top 5 applications on your behalf, drafting all supporting operational narratives.</p>
+              <p className="text-brand-cyan text-lg font-bold mb-4">$497 <span className="text-xs text-white/55 font-light">one-time</span></p>
+              <p className="text-white/70 font-light text-xs mb-4">We complete the top 5 applications on your behalf, drafting all supporting operational narratives.</p>
             </div>
-            <a href="https://buy.stripe.com/14A14n4Z97u08Cq25ddUY0a" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all">
+            <a href="https://buy.stripe.com/14A14n4Z97u08Cq25ddUY0a" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all">
               Order Guided Setup
             </a>
           </div>
 
-          {/* Full Application Stack */}
+          
           <div className="glass p-6 rounded-lg flex flex-col justify-between glass-hover border border-white/5">
             <div>
               <h4 className="font-bold text-white mb-2">Full Application Stack</h4>
-              <p className="text-brand-cyan text-lg font-bold mb-4">$997 <span className="text-xs text-white/40 font-light">one-time</span></p>
-              <p className="text-white/60 font-light text-xs mb-4">We handle the configuration and full application process across all matching credit and grant programs.</p>
+              <p className="text-brand-cyan text-lg font-bold mb-4">$997 <span className="text-xs text-white/55 font-light">one-time</span></p>
+              <p className="text-white/70 font-light text-xs mb-4">We handle the configuration and full application process across all matching credit and grant programs.</p>
             </div>
-            <a href="https://buy.stripe.com/6oU14n63ddSo9Gu4dldUY0e" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all">
+            <a href="https://buy.stripe.com/6oU14n63ddSo9Gu4dldUY0e" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all">
               Order Full Setup
             </a>
           </div>
 
-          {/* Ongoing Monitoring */}
+          
           <div className="glass p-6 rounded-lg flex flex-col justify-between glass-hover border border-white/5">
             <div>
               <h4 className="font-bold text-white mb-2">Ongoing Benefit Monitoring</h4>
-              <p className="text-brand-cyan text-lg font-bold mb-4">$99 <span className="text-xs text-white/40 font-light">/ month</span></p>
-              <p className="text-white/60 font-light text-xs mb-4">We actively track newly opening grants, renew credits before expiration, and manage eligibility.</p>
+              <p className="text-brand-cyan text-lg font-bold mb-4">$99 <span className="text-xs text-white/55 font-light">/ month</span></p>
+              <p className="text-white/70 font-light text-xs mb-4">We actively track newly opening grants, renew credits before expiration, and manage eligibility.</p>
             </div>
-            <a href="https://buy.stripe.com/6oU6oH9fpg0wg4S9xFdUY0f" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all">
+            <a href="https://buy.stripe.com/6oU6oH9fpg0wg4S9xFdUY0f" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all">
               Activate Retainer
             </a>
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: RETAINERS (Monthly) */}
+      
       <section className="space-y-8 border-t border-white/5 pt-16">
-        <h2 className="text-xl font-bold tracking-wider uppercase text-center text-brand-cyan">
+        <h2 className="text-xl font-bold text-center text-white tracking-tight">
           4. Ongoing AI Visibility Management (Monthly)
         </h2>
         
-        {/* Sovereign Bundle Featured Prominently FIRST */}
+        
         <div className="glass p-8 rounded-lg border-2 border-brand-cyan/40 text-center max-w-2xl mx-auto glass-hover mb-12 shadow-[0_0_30px_rgba(0,210,255,0.05)]">
-          <span className="bg-brand-cyan text-brand-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">Save $198 / Month</span>
-          <h3 className="text-2xl font-bold uppercase tracking-wider text-brand-cyan mt-4 mb-2">The Sovereign Bundle</h3>
-          <p className="text-brand-cyan text-3xl font-bold mb-4">$699 <span className="text-xs text-white/40 font-light">/ month</span></p>
+          <span className="bg-brand-cyan text-brand-navy text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded">Save $198 / Month</span>
+          <h3 className="text-2xl font-bold text-white tracking-tight mt-4 mb-2">The Sovereign Bundle</h3>
+          <p className="text-brand-cyan text-3xl font-bold mb-4">$699 <span className="text-xs text-white/55 font-light">/ month</span></p>
           <p className="text-white/60 text-sm font-light mb-6 max-w-md mx-auto">
-            Everything we offer on retainer — competitor tracking, website maintenance, and monthly AI visibility checks — managed together at a reduced rate. Most clients find this is the only ongoing service they need once their initial audit is complete.
+            Everything we offer on retainer, managed together at a lower rate: competitor tracking, site maintenance, and monthly visibility checks. For most clients, this is the only ongoing service they need.
           </p>
           <a href="https://buy.stripe.com/4gMaEXezJ8y419Y6ltdUY08" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-brand-cyan text-brand-navy font-bold text-xs tracking-wider uppercase rounded hover:bg-white hover:text-brand-navy hover:shadow-[0_0_25px_rgba(0,210,255,0.4)] transition-all duration-300">
             Activate Sovereign Bundle
           </a>
         </div>
 
-        {/* Three Smaller Cards below */}
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-lg font-bold mb-2">Competitor Monitoring</h3>
-              <p className="text-brand-cyan text-xl font-bold mb-6">$299 <span className="text-xs text-white/40 font-light">/ month</span></p>
-              <p className="text-white/60 font-light text-xs mb-6 leading-relaxed">
-                We track what your competitors are doing online every month — where they're appearing, how their visibility is changing, and whether they're gaining ground on you. You receive a monthly summary with any strategy adjustments recommended.
+              <p className="text-brand-cyan text-xl font-bold mb-6">$299 <span className="text-xs text-white/55 font-light">/ month</span></p>
+              <p className="text-white/70 font-light text-xs mb-6 leading-relaxed">
+                Every month we track what your competitors are doing online. We check where they appear and whether they are gaining on you. You get a monthly summary with any changes we recommend.
               </p>
             </div>
-            <a href="https://buy.stripe.com/6oUeVd77h01ycSG8tBdUY05" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all">
+            <a href="https://buy.stripe.com/6oUeVd77h01ycSG8tBdUY05" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all">
               Secure Retainer
             </a>
           </div>
@@ -259,12 +259,12 @@ export default function Pricing() {
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-lg font-bold mb-2">Autopilot Stack</h3>
-              <p className="text-brand-cyan text-xl font-bold mb-6">$299 <span className="text-xs text-white/40 font-light">/ month</span></p>
-              <p className="text-white/60 font-light text-xs mb-6 leading-relaxed">
-                We handle your website upkeep, set up an automated chat assistant for your site visitors, and run a system that consistently collects reviews from your customers — all running in the background without your involvement.
+              <p className="text-brand-cyan text-xl font-bold mb-6">$299 <span className="text-xs text-white/55 font-light">/ month</span></p>
+              <p className="text-white/70 font-light text-xs mb-6 leading-relaxed">
+                We handle your site upkeep. We set up a chat assistant for your visitors. We also run a system that collects reviews from your customers. It all runs in the background.
               </p>
             </div>
-            <a href="https://buy.stripe.com/00wfZhfDNeWs5qe4dldUY06" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all">
+            <a href="https://buy.stripe.com/00wfZhfDNeWs5qe4dldUY06" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all">
               Secure Retainer
             </a>
           </div>
@@ -272,21 +272,21 @@ export default function Pricing() {
           <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
             <div>
               <h3 className="text-lg font-bold mb-2">GEO Monitoring</h3>
-              <p className="text-brand-cyan text-xl font-bold mb-6">$299 <span className="text-xs text-white/40 font-light">/ month</span></p>
-              <p className="text-white/60 font-light text-xs mb-6 leading-relaxed">
-                Every month we re-test your AI search visibility across all five platforms and update your website's technical configuration to match the latest changes in how AI systems find and recommend businesses. Your position is actively maintained, not just set and forgotten.
+              <p className="text-brand-cyan text-xl font-bold mb-6">$299 <span className="text-xs text-white/55 font-light">/ month</span></p>
+              <p className="text-white/70 font-light text-xs mb-6 leading-relaxed">
+                Every month we re-test your visibility on all five AI platforms. Then we update your site to match how AI finds businesses now. Your position is actively maintained, not just set and forgotten.
               </p>
             </div>
-            <a href="https://buy.stripe.com/7sY00j3V53dK7ymdNVdUY07" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all">
+            <a href="https://buy.stripe.com/7sY00j3V53dK7ymdNVdUY07" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all">
               Secure Retainer
             </a>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: NOT SURE WHERE TO START? */}
+      
       <section className="glass p-8 md:p-12 rounded-xl text-center max-w-4xl mx-auto space-y-6 border border-brand-cyan/20">
-        <h2 className="text-2xl font-bold uppercase tracking-wider text-brand-cyan">Not Sure Where to Start?</h2>
+        <h2 className="text-2xl font-bold text-white tracking-tight">Not Sure Where to Start?</h2>
         <p className="text-white/70 max-w-xl mx-auto font-light leading-relaxed text-sm">
           Take the free visibility check first. We'll recommend the right starting point based on what we find. No obligation, no credit card.
         </p>

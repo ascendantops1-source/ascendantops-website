@@ -45,13 +45,13 @@ export default function Contact() {
 
   return (
     <div className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-      {/* Informational Column */}
+      
       <div className="space-y-8">
         <h1 className="text-4xl font-bold tracking-tight">
           Acquire Your <span className="text-brand-cyan">Preliminary Check</span>
         </h1>
         <p className="text-white/70 text-lg font-light leading-relaxed">
-          Fill out the secure ledger below. We will run our local AI visibility scanner on your website and deliver your customized preliminary report card.
+          Fill out the form below. We will run our AI visibility scanner on your site. Then we send your preliminary report card.
         </p>
         
         <div className="relative h-64 md:h-80 rounded-lg overflow-hidden border border-white/5 shadow-[0_0_30px_rgba(0,210,255,0.05)]">
@@ -73,10 +73,10 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Form Card */}
+      
       <div className="glass p-8 rounded-lg shadow-[0_0_30px_rgba(0,210,255,0.02)]">
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Inputs */}
+          
           <div>
             <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Your Name</label>
             <input type="text" required className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
@@ -104,7 +104,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Service Selection Dropdown */}
+          
           <div>
             <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Audit Scope / Service Needed</label>
             <select

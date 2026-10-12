@@ -8,7 +8,7 @@ export default function Assessment() {
           Autonomous AI <span className="text-brand-cyan">Business Assessment</span>
         </h1>
         <p className="text-white/70 text-lg font-light leading-relaxed">
-          Most businesses are paying for time, tools, and staff to handle tasks that AI could handle automatically — often for a fraction of the cost. We review your operations, find exactly where that's happening, and show you what to do about it. No technical knowledge required on your end.
+          Most businesses pay for time, tools, and staff to do tasks AI could do instead, often for far less. We review your operations. We show you exactly where that is happening, and what to do about it. No technical knowledge needed.
         </p>
       </div>
 
@@ -18,11 +18,11 @@ export default function Assessment() {
           <ul className="space-y-4 text-white/70 font-light text-sm">
             <li className="flex items-start gap-2">
               <span className="text-brand-cyan shrink-0 font-bold">✓</span>
-              <span><strong>Customer Enquiries:</strong> We identify which incoming messages, bookings, and follow-ups can be handled automatically — so your team focuses on work that actually needs them.</span>
+              <span><strong>Customer Enquiries:</strong> We find which messages, bookings, and follow-ups can be handled automatically. Your team then focuses on work that needs them.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-brand-cyan shrink-0 font-bold">✓</span>
-              <span><strong>Software Cost Review:</strong> We find the tools and subscriptions quietly draining your budget every month that cheaper or free alternatives can replace.</span>
+              <span><strong>Software Cost Review:</strong> We find the tools and subscriptions draining your budget each month that cheaper or free options can replace.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-brand-cyan shrink-0 font-bold">✓</span>
@@ -33,11 +33,11 @@ export default function Assessment() {
 
         <div className="space-y-6">
           <h3 className="text-xl font-bold">An Audit Built for Business Owners</h3>
-          <p className="text-white/60 font-light text-sm leading-relaxed">
-            We speak plain English. Whether you run a trades business, a medical practice, a restaurant, or a professional services firm — you will understand every finding in your report.
+          <p className="text-white/70 font-light text-sm leading-relaxed">
+            We speak plain English. Whether you run a trades business, a clinic, a restaurant, or a law firm, you will understand every finding.
           </p>
-          <p className="text-white/60 font-light text-sm leading-relaxed">
-            You receive a clear list of what to change, what it costs, and what it saves. Your team can act on it independently, or we handle everything for you.
+          <p className="text-white/70 font-light text-sm leading-relaxed">
+            You get a clear list of what to change, what it costs, and what it saves. Your team can act on it alone, or we handle it.
           </p>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function Assessment() {
         <div className="glass p-8 rounded-lg flex flex-col justify-between glass-hover">
           <div>
             <h3 className="text-xl font-bold mb-2">Operations Assessment</h3>
-            <p className="text-brand-cyan text-2xl font-bold">$500 <span className="text-xs text-white/40 font-light">one-time</span></p>
+            <p className="text-brand-cyan text-2xl font-bold">$500 <span className="text-xs text-white/55 font-light">one-time</span></p>
             <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
               <li className="flex items-center gap-2">✓ A full review of how your business currently handles customer communication, follow-ups, and repetitive internal tasks</li>
               <li className="flex items-center gap-2">✓ Identification of every software subscription you could eliminate or reduce</li>
@@ -63,10 +63,10 @@ export default function Assessment() {
         </div>
 
         <div className="glass p-8 rounded-lg border border-brand-cyan/30 flex flex-col justify-between glass-hover shadow-[0_0_20px_rgba(0,210,255,0.05)]">
-          <span className="absolute -top-3 right-6 bg-brand-cyan text-brand-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">Popular</span>
+          <span className="absolute -top-3 right-6 bg-brand-cyan text-brand-navy text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded">Popular</span>
           <div>
             <h3 className="text-xl font-bold mb-2">Full Autonomous Audit</h3>
-            <p className="text-brand-cyan text-2xl font-bold">$1,000 <span className="text-xs text-white/40 font-light">one-time</span></p>
+            <p className="text-brand-cyan text-2xl font-bold">$1,000 <span className="text-xs text-white/55 font-light">one-time</span></p>
             <ul className="space-y-3 text-sm text-white/70 font-light mb-8">
               <li className="flex items-center gap-2">✓ Everything in the Operations Assessment</li>
               <li className="flex items-center gap-2">✓ We go deeper — mapping out a complete automation system tailored to your business</li>

@@ -44,7 +44,7 @@ function ThankYouContent() {
   return (
     <div className="w-full py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-16">
       
-      {/* 1. Header */}
+      
       <section className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center justify-center w-16 h-10 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan mb-2">
           ✓
@@ -60,42 +60,42 @@ function ThankYouContent() {
         </p>
       </section>
 
-      {/* 2. What Happens Next */}
+      
       <section className="max-w-4xl mx-auto border-t border-b border-white/5 py-12">
         <h3 className="text-xs uppercase tracking-widest text-brand-cyan font-bold text-center mb-8">What Happens Next</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-3 text-center md:text-left">
-            <span className="text-xs font-bold text-brand-cyan/40 block">STAGE 01</span>
+            <span className="text-xs font-bold text-brand-cyan/40 block">Stage 01</span>
             <h4 className="font-bold text-white text-base">Visibility Scanning</h4>
-            <p className="text-xs text-white/60 font-light leading-relaxed">
-              We execute semantic queries across 5 major AI platform frameworks, validating where and how your brand is indexed.
+            <p className="text-xs text-white/70 font-light leading-relaxed">
+              We run queries across 5 major AI platforms. We check where and how your brand is indexed.
             </p>
           </div>
           <div className="space-y-3 text-center md:text-left">
-            <span className="text-xs font-bold text-brand-cyan/40 block">STAGE 02</span>
+            <span className="text-xs font-bold text-brand-cyan/40 block">Stage 02</span>
             <h4 className="font-bold text-white text-base">Competitive Context</h4>
-            <p className="text-xs text-white/60 font-light leading-relaxed">
+            <p className="text-xs text-white/70 font-light leading-relaxed">
               Our specialists compare your score against your geographic competitors to map out immediate displacement opportunities.
             </p>
           </div>
           <div className="space-y-3 text-center md:text-left">
-            <span className="text-xs font-bold text-brand-cyan/40 block">STAGE 03</span>
+            <span className="text-xs font-bold text-brand-cyan/40 block">Stage 03</span>
             <h4 className="font-bold text-white text-base">Delivery & Strategy</h4>
-            <p className="text-xs text-white/60 font-light leading-relaxed">
-              You receive a unified PDF report with exact instructions on how to patch vulnerabilities, followed by strategic guidance.
+            <p className="text-xs text-white/70 font-light leading-relaxed">
+              You get one PDF report. It shows exactly how to fix each problem, plus guidance on what to do next.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 3. IMMEDIATE UPSELL (Complete Capital Audit $397) */}
+      
       <section className="glass p-8 md:p-12 rounded-xl border-2 border-brand-cyan/40 max-w-3xl mx-auto text-center space-y-6 shadow-[0_0_30px_rgba(0,210,255,0.05)] relative">
-        <span className="md:absolute top-4 right-6 inline-block bg-brand-cyan text-brand-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded mb-4 md:mb-0">
+        <span className="md:absolute top-4 right-6 inline-block bg-brand-cyan text-brand-navy text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded mb-4 md:mb-0">
           Priority Matching Upgrade
         </span>
-        <h3 className="text-2xl font-bold uppercase tracking-wider text-brand-cyan">Unlock Hidden Funding & Credits</h3>
+        <h3 className="text-2xl font-bold text-white tracking-tight">Unlock Hidden Funding & Credits</h3>
         <p className="text-sm text-white/80 font-light leading-relaxed max-w-xl mx-auto">
-          While your audit is processing, most clients also discover they qualify for significant government grants and technology credits they've never claimed. Add the **Complete Capital Audit** for **$397** and receive both reports simultaneously.
+          While your audit runs, most clients find they qualify for grants and tech credits they never claimed. Add the **Complete Capital Audit** for **$397**. You get both reports together.
         </p>
         <div className="pt-2">
           <a 
@@ -109,11 +109,11 @@ function ThankYouContent() {
         </div>
       </section>
 
-      {/* 4. Optional Intake Form */}
+      
       <section className="glass p-8 rounded-xl border border-white/5 max-w-3xl mx-auto space-y-6">
         <div className="space-y-2 text-center md:text-left">
           <h3 className="text-lg font-bold text-white">Provide Supplementary Diagnostic Metrics</h3>
-          <p className="text-xs text-white/60 font-light">If you have extra site metrics, help us pre-optimize your report card.</p>
+          <p className="text-xs text-white/70 font-light">If you have extra site metrics, help us pre-optimize your report card.</p>
         </div>
         
         {formStatus === 'success' ? (
@@ -122,7 +122,7 @@ function ThankYouContent() {
           <form onSubmit={handleIntakeSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] uppercase tracking-widest text-brand-cyan mb-2 font-bold">Top Local Competitor Website</label>
+                <label className="block text-[11px] uppercase tracking-widest text-brand-cyan mb-2 font-bold">Top Local Competitor Website</label>
                 <input 
                   type="url" 
                   placeholder="https://competitor.com"
@@ -132,7 +132,7 @@ function ThankYouContent() {
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-widest text-brand-cyan mb-2 font-bold">Your Website's CMS Platform</label>
+                <label className="block text-[11px] uppercase tracking-widest text-brand-cyan mb-2 font-bold">Your Website's CMS Platform</label>
                 <select 
                   className="w-full bg-brand-dark border border-white/10 rounded p-3 text-xs text-white focus:outline-none focus:border-brand-cyan"
                   value={formData.cmsPlatform} 
@@ -147,7 +147,7 @@ function ThankYouContent() {
               </div>
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-widest text-brand-cyan mb-2 font-bold">Additional Software Stack Details / Specific Bottlenecks</label>
+              <label className="block text-[11px] uppercase tracking-widest text-brand-cyan mb-2 font-bold">Additional Software Stack Details / Specific Bottlenecks</label>
               <textarea 
                 rows={3} 
                 className="w-full bg-brand-dark border border-white/10 rounded p-3 text-xs text-white focus:outline-none focus:border-brand-cyan resize-none"
@@ -160,7 +160,7 @@ function ThankYouContent() {
               <button 
                 type="submit" 
                 disabled={formStatus === 'loading'} 
-                className="px-6 py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[10px] font-bold tracking-wider uppercase rounded transition-all"
+                className="px-6 py-2.5 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy text-[11px] font-bold tracking-wider uppercase rounded transition-all"
               >
                 {formStatus === 'loading' ? 'Submitting Details...' : 'Submit Diagnostics'}
               </button>
@@ -169,9 +169,9 @@ function ThankYouContent() {
         )}
       </section>
 
-      {/* 5. LinkedIn Relationship Deepening */}
+      
       <section className="text-center py-6 border-t border-white/5">
-        <p className="text-xs text-white/50 mb-3 font-light">Stay updated with real-time generative engine algorithm changes & operational tech advisories:</p>
+        <p className="text-xs text-white/62 mb-3 font-light">Stay updated with real-time generative engine algorithm changes & operational tech advisories:</p>
         <a 
           href="https://linkedin.com/company/ascendantops" 
           target="_blank" 

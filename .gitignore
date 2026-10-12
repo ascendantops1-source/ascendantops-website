@@ -5,3 +5,12 @@ node_modules/
 *.zip
 .vercel/
 .next/cache/
+# --- added: keep backups, secrets and build output out of the repo ---
+*.bak
+*.pre-read
+*.pre-style
+out/
+.env.txt
+JARVIS DASH.txt
+daily_log.md
+obsidian daily log/

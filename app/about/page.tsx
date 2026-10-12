@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import RoiCalculator from "../../components/RoiCalculator";
 
-// Priority 4 — Updated Meta Description
 export const metadata: Metadata = {
   title: "About Us — AscendantOps",
   description:
@@ -10,9 +9,58 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
+  const faqs = [
+    {
+      q: "How much does an AI visibility audit cost?",
+      a: "The first check is free. The Basic Audit is $150. You get your score, a written report with three issues, and a comparison with local competitors. Ongoing management is $699 per month."
+    },
+    {
+      q: "How long does it take?",
+      a: "The free check usually comes back within a few hours. The full audit takes about one business day. Written reports arrive within 48 hours."
+    },
+    {
+      q: "What is GEO (Generative Engine Optimization)?",
+      a: "GEO means making sure AI tools like ChatGPT and Google AI name your business when someone asks for a recommendation in your city. SEO targets how Google ranks your site. GEO targets what AI says when asked a direct question."
+    },
+    {
+      q: "Is there a GEO audit service available in the UK?",
+      a: "Yes. We work with UK businesses remotely. We check how you appear on the AI platforms your customers use."
+    },
+    {
+      q: "Can Australian businesses get a GEO audit?",
+      a: "Yes. We work with Australian businesses remotely, including Sydney, Melbourne, Brisbane and Perth."
+    },
+    {
+      q: "Do you offer services in Canada?",
+      a: "We are headquartered in Toronto and serve Canadian businesses coast to coast, in both English and French."
+    },
+    {
+      q: "Do you work with US businesses?",
+      a: "Yes. We serve businesses across all 50 states."
+    },
+    {
+      q: "My website ranks well on Google. Why is my AI visibility score low?",
+      a: "Ranking on Google and being named by ChatGPT are two different things. Your site can rank first on Google and still never come up in ChatGPT. Our own site scored 49 out of 100. Its technical score was 90."
+    },
+    {
+      q: "Why should I trust your score?",
+      a: "Every point comes from a signal we can measure on your live site. That includes your structured data, your schema markup, and your technical setup. Run the audit twice and you get the same score. We publish our own score too, and we update it as it improves."
+    }
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  };
+
   return (
     <div className="w-full py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-24">
-      {/* Hero Section */}
+      
       <section className="text-center max-w-4xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
           Your Next Customer Is Asking AI.<br />
@@ -23,10 +71,10 @@ export default function About() {
         </p>
       </section>
 
-      {/* Section 1 — The Shift */}
+      
       <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-brand-cyan uppercase tracking-wider">How Customers Find You Has Changed</h2>
+          <h2 className="text-3xl font-bold text-white tracking-tight">How Customers Find You Has Changed</h2>
           <div className="space-y-4 text-white/70 font-light leading-relaxed">
             <p>
               Your customers used to Google you. Now millions of them ask ChatGPT, Perplexity, or Google AI instead.
@@ -45,14 +93,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* Section 2 — The Problem */}
+      
       <section className="space-y-12">
-        <h2 className="text-3xl font-bold text-center text-brand-cyan uppercase tracking-wider">The Hidden Cost of Being Invisible to AI</h2>
+        <h2 className="text-3xl font-bold text-center text-white tracking-tight">The Hidden Cost of Being Invisible to AI</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="glass p-8 rounded-lg glass-hover space-y-4">
             <h4 className="text-lg font-bold text-white">Your competitors are getting recommended. You're not.</h4>
             <p className="text-white/60 text-sm font-light leading-relaxed">
-              Every time AI recommends someone in your industry and it isn't you, that is a customer your marketing budget helped attract — and handed to someone else. This is happening hundreds of times a month.
+              Every time AI recommends someone in your industry and it is not you, that is a customer your marketing helped attract. And it went to someone else. This is happening hundreds of times a month.
             </p>
           </div>
 
@@ -72,7 +120,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Section 3 — The ROI & Interactive Calculator Integration */}
+      
       <section className="py-12 border-t border-b border-white/5 text-center bg-brand-dark/20 rounded-xl max-w-4xl mx-auto p-8 space-y-8 shadow-[inset_0_0_30px_rgba(0,210,255,0.01)]">
         <h2 className="text-2xl font-bold text-brand-cyan uppercase tracking-wider">What Is One Missed Customer Actually Worth?</h2>
         <div className="space-y-4 text-white/80 font-light">
@@ -82,115 +130,77 @@ export default function About() {
           <p className="text-2xl font-bold mt-6 text-white">
             That's <span className="text-red-500">$500</span> of every $2,500 opportunity going to someone else.
           </p>
-          <p className="text-sm text-white/40 uppercase tracking-widest mt-2">Every Single Month.</p>
+          <p className="text-sm text-white/55 uppercase tracking-widest mt-2">Every Single Month.</p>
         </div>
 
-        {/* --- DYNAMIC INTERACTIVE CALCULATOR --- */}
+        
         <div className="mt-8">
           <RoiCalculator />
         </div>
       </section>
 
-      {/* NEW SECTION — INDUSTRY SWEEP SOCIAL PROOF */}
+      
       <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto space-y-12 border-t border-white/5">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-brand-cyan uppercase tracking-wider">This Week We Audited</h2>
+          <h2 className="text-3xl font-bold text-white tracking-tight">This Week We Audited</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-2xl font-bold text-brand-cyan">847</h4>
-            <p className="text-xs uppercase tracking-widest text-white/50 mt-2">Businesses Audited</p>
+            <h4 className="text-2xl font-bold text-brand-cyan">6</h4>
+            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Businesses Audited So Far</p>
             <p className="text-white/60 text-xs font-light mt-1">Across Edmonton, Calgary, and Toronto.</p>
           </div>
           <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-2xl font-bold text-brand-cyan">31%</h4>
-            <p className="text-xs uppercase tracking-widest text-white/50 mt-2">Current Visibility</p>
+            <h4 className="text-2xl font-bold text-brand-cyan">71</h4>
+            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Current Visibility</p>
             <p className="text-white/60 text-xs font-light mt-1">Percentage appearing in ChatGPT results.</p>
           </div>
           <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-2xl font-bold text-brand-cyan">52/100</h4>
-            <p className="text-xs uppercase tracking-widest text-white/50 mt-2">Average Score</p>
+            <h4 className="text-2xl font-bold text-brand-cyan">49/100</h4>
+            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Average Score</p>
             <p className="text-white/60 text-xs font-light mt-1">Baseline across all industries.</p>
           </div>
           <div className="glass p-6 rounded-lg text-center">
             <h4 className="text-lg font-bold text-brand-cyan mt-1">Plumbing, Legal, Dental</h4>
-            <p className="text-xs uppercase tracking-widest text-white/50 mt-2">Industries Audited</p>
+            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Industries Audited</p>
             <p className="text-white/60 text-xs font-light mt-1">+ HVAC, Marketing, Financial Services.</p>
           </div>
         </div>
       </section>
 
-      {/* Priority 4 — Regional FAQ Content (About Page Integration) */}
+            
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="w-full py-16 px-6 md:px-12 max-w-4xl mx-auto border-t border-white/5 space-y-8">
-        <h2 className="text-3xl font-bold text-center text-brand-cyan uppercase tracking-wider">Regional Availability & FAQs</h2>
+        <h2 className="text-3xl font-bold text-center text-white tracking-tight">Regional Availability & FAQs</h2>
         <div className="space-y-4">
-          <details className="group border border-white/10 rounded-lg p-6 bg-brand-dark/20 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-              <h3 className="text-lg font-bold text-white group-open:text-brand-cyan transition-colors">Is there a GEO audit service available in the UK?</h3>
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white/10 p-1.5 text-white/50 group-open:rotate-180 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </span>
-            </summary>
-            <p className="mt-4 text-white/70 font-light leading-relaxed text-sm">
-              Yes. We serve UK businesses across all industries, providing specialized insights adapted for British digital markets and regional AI model parameters.
-            </p>
-          </details>
-
-          <details className="group border border-white/10 rounded-lg p-6 bg-brand-dark/20 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-              <h3 className="text-lg font-bold text-white group-open:text-brand-cyan transition-colors">Can Australian businesses get a GEO audit?</h3>
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white/10 p-1.5 text-white/50 group-open:rotate-180 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </span>
-            </summary>
-            <p className="mt-4 text-white/70 font-light leading-relaxed text-sm">
-              Yes. We work with businesses across Sydney, Melbourne, Brisbane, Perth, and major metro areas to optimize localized generative search index nodes.
-            </p>
-          </details>
-
-          <details className="group border border-white/10 rounded-lg p-6 bg-brand-dark/20 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-              <h3 className="text-lg font-bold text-white group-open:text-brand-cyan transition-colors">Do you offer services in Canada?</h3>
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white/10 p-1.5 text-white/50 group-open:rotate-180 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </span>
-            </summary>
-            <p className="mt-4 text-white/70 font-light leading-relaxed text-sm">
-              We are headquartered in Toronto and serve Canadian businesses coast to coast, addressing local optimization signals across English and French generative outputs.
-            </p>
-          </details>
-
-          <details className="group border border-white/10 rounded-lg p-6 bg-brand-dark/20 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-              <h3 className="text-lg font-bold text-white group-open:text-brand-cyan transition-colors">Do you work with US businesses?</h3>
-              <span className="ml-1.5 flex-shrink-0 rounded-full bg-white/10 p-1.5 text-white/50 group-open:rotate-180 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </span>
-            </summary>
-            <p className="mt-4 text-white/70 font-light leading-relaxed text-sm">
-              Yes. We serve businesses across all 50 states, ensuring broad geographic relevance and high probability of citation within US-based AI query models.
-            </p>
-          </details>
+          {faqs.map((f, i) => (
+            <details key={i} className="group border border-white/10 rounded-lg p-6 bg-brand-dark/20 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
+                <h3 className="text-lg font-bold text-white group-open:text-brand-cyan transition-colors">{f.q}</h3>
+                <span className="ml-1.5 flex-shrink-0 rounded-full bg-white/10 p-1.5 text-white/62 group-open:rotate-180 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-white/70 font-light leading-relaxed text-sm">{f.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 
-      {/* Section 4 — Who We Are */}
+      
       <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center border-t border-white/5 pt-16">
         <div className="relative h-96 rounded-lg overflow-hidden border border-white/5 shadow-[0_0_30px_rgba(0,210,255,0.05)]">
           <img src="/aria-headshot.png" alt="ARIA AI" className="w-full h-full object-cover" />
         </div>
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-brand-cyan uppercase tracking-wider">We Built the Tool. We Run the Numbers. You Get the Answer.</h2>
+          <h2 className="text-3xl font-bold text-white tracking-tight">We Built the Tool. We Run the Numbers. You Get the Answer.</h2>
           <p className="text-white/70 font-light leading-relaxed">
-            Most companies charging for this service bill $5,000 or more per month and take weeks to deliver a report. We deliver the same quality of analysis — scored across five AI platforms, with specific findings and a clear action plan — in 48 hours, starting at $150.
+            Most agencies charge $5,000 or more per month and take weeks to deliver. We deliver the same analysis in 48 hours, starting at $150.
           </p>
           <p className="text-white/70 font-light leading-relaxed">
             No retainer required. No jargon. No vague recommendations. Just a clear score, what's hurting it, and exactly what to do about it.
@@ -198,33 +208,33 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      
       <section className="grid grid-cols-1 md:grid-cols-5 gap-6">
         <div className="glass p-6 rounded-lg text-center space-y-2">
           <h4 className="text-2xl font-bold text-brand-cyan">5</h4>
-          <p className="text-xs uppercase tracking-wider text-white/50 mt-2">Platforms Checked</p>
+          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Platforms Checked</p>
         </div>
         <div className="glass p-6 rounded-lg text-center space-y-2">
           <h4 className="text-2xl font-bold text-brand-cyan">48h</h4>
-          <p className="text-xs uppercase tracking-wider text-white/50 mt-2">Turnaround</p>
+          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Turnaround</p>
         </div>
         <div className="glass p-6 rounded-lg text-center space-y-2">
           <h4 className="text-2xl font-bold text-brand-cyan">5</h4>
-          <p className="text-xs uppercase tracking-wider text-white/50 mt-2">Categories</p>
+          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Categories</p>
         </div>
         <div className="glass p-6 rounded-lg text-center space-y-2">
           <h4 className="text-sm font-bold text-brand-cyan">CAN, USA, UK, AUS + 30</h4>
-          <p className="text-xs uppercase tracking-wider text-white/50 mt-2">Countries Served</p>
+          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Countries Served</p>
         </div>
         <div className="glass p-6 rounded-lg text-center space-y-2">
           <h4 className="text-2xl font-bold text-brand-cyan">48h</h4>
-          <p className="text-xs uppercase tracking-wider text-white/50 mt-2">Audit Report</p>
+          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Audit Report</p>
         </div>
       </section>
 
-      {/* Section 6 — Three Reasons to Trust Us */}
+      
       <section className="space-y-12 border-t border-white/5 pt-16">
-        <h2 className="text-3xl font-bold text-center text-brand-cyan uppercase tracking-wider">What Makes AscendantOps Different</h2>
+        <h2 className="text-3xl font-bold text-center text-white tracking-tight">What Makes AscendantOps Different</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-3">
             <h4 className="text-lg font-bold text-white border-b border-brand-cyan/20 pb-2">You see exactly what we see.</h4>
@@ -241,13 +251,13 @@ export default function About() {
           <div className="space-y-3">
             <h4 className="text-lg font-bold text-white border-b border-brand-cyan/20 pb-2">The results are measurable.</h4>
             <p className="text-white/60 text-sm font-light leading-relaxed">
-              After we implement fixes, we re-run the audit so you can see the before and after score side by side. You don't have to take our word for it — the number either moves or it doesn't.
+              After we fix things, we run the audit again. You see the before and after side by side. You don't have to take our word for it. The number either moves or it doesn't.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 7 — Final CTA */}
+      
       <section className="glass p-8 md:p-12 rounded-xl text-center max-w-4xl mx-auto space-y-6 border border-brand-cyan/20">
         <h2 className="text-3xl font-bold uppercase tracking-wider text-brand-cyan">Find Out Where You Stand — At No Cost</h2>
         <p className="text-white/70 max-w-xl mx-auto font-light leading-relaxed text-sm">

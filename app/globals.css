@@ -2,36 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   SHARED DESIGN SYSTEM
+   Identity: navy + cyan, used with restraint.
+   White for reading text. Cyan for emphasis and actions.
+   Fewer simultaneous grid + glow + border + blur effects.
+   ============================================================ */
+
 body {
   background-color: #0A0E1A;
   color: #FFFFFF;
   font-family: var(--font-space-grotesk), sans-serif;
   overflow-x: hidden;
-  
-  /* Subtle high-tech background grid */
-  background-image: 
-    radial-gradient(rgba(0, 210, 255, 0.08) 1px, transparent 0),
-    radial-gradient(rgba(0, 210, 255, 0.04) 1.5px, transparent 0);
+
+  /* Background grid — deliberately faint. It should read as texture,
+     not compete with content. */
+  background-image:
+    radial-gradient(rgba(0, 210, 255, 0.035) 1px, transparent 0),
+    radial-gradient(rgba(0, 210, 255, 0.018) 1.5px, transparent 0);
   background-size: 40px 40px, 80px 80px;
   background-position: 0 0, 20px 20px;
 }
 
-/* Premium Glassmorphism card utility */
+/* ---------- Surfaces ----------------------------------------
+   Three tiers. Use them in this order of frequency:
+   .card (most things) > .callout (inline note) > .card-featured (the one
+   thing on the page you want read).
+   ------------------------------------------------------------ */
+
+/* Default card. Quiet. Most content lives here. */
+.card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+}
+
+/* Featured card. Reserve for the single recommended option or hero proof. */
+.card-featured {
+  background: rgba(0, 210, 255, 0.03);
+  border: 1px solid rgba(0, 210, 255, 0.28);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 30px rgba(0, 210, 255, 0.06);
+}
+
+/* Inline callout. For notes, caveats, asides. */
+.callout {
+  background: rgba(0, 210, 255, 0.04);
+  border-left: 2px solid rgba(0, 210, 255, 0.5);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Legacy glass — kept for compatibility, blur reduced for performance. */
 .glass {
   background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-hover:hover {
   background: rgba(0, 210, 255, 0.02);
-  border-color: rgba(0, 210, 255, 0.25);
-  box-shadow: 0 0 25px rgba(0, 210, 255, 0.08);
+  border-color: rgba(0, 210, 255, 0.22);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.06);
   transform: translateY(-2px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glow-text {
-  text-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
+  text-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+/* ---------- Typography --------------------------------------
+   Headlines are sentence case and white by default. Cyan is emphasis,
+   not the default colour for every heading.
+   ------------------------------------------------------------ */
+
+/* Small label / eyebrow. The ONE place uppercase belongs. */
+.label {
+  font-size: 0.6875rem; /* 11px — raised from the 10px that was too small */
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #00D2FF;
+}
+
+/* Long headline. Sentence case, white, normal tracking. */
+.h-display {
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+/* ---------- Legibility --------------------------------------
+   Muted text must stay readable on navy. Floors at 0.66 rather than
+   the 0.4–0.5 that was hard to read.
+   ------------------------------------------------------------ */
+.text-muted {
+  color: rgba(255, 255, 255, 0.66);
+}
+.text-muted-strong {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ---------- Interaction -------------------------------------
+   Visible keyboard focus everywhere. Hover-only styling locks out
+   keyboard users.
+   ------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid #00D2FF;
+  outline-offset: 2px;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #00D2FF;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Form controls need a visible boundary, not just a bottom line. */
+input,
+select,
+textarea {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Motion ------------------------------------------
+   Honour the OS setting. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .glass-hover:hover {
+    transform: none;
+  }
 }
