@@ -7,27 +7,27 @@ export const metadata: Metadata = {
 };
 
 const method = [
-  { number: "01", title: "Start with real questions", copy: "We look at the kinds of questions a prospective customer might ask, then check what selected AI search tools return for your business and market." },
+  { number: "01", title: "Start with real questions", copy: "We start with the questions a customer might ask. Then we check what the AI tools return for your business and market." },
   { number: "02", title: "Show the evidence", copy: "Findings are tied to what we observed: the prompt, platform, date, and available sources. AI answers can change, so a review is a dated snapshot—not a permanent score." },
-  { number: "03", title: "Explain the next move", copy: "We separate practical fixes from lower-priority ideas, explain why each one matters, and leave you free to act on the advice yourself." },
+  { number: "03", title: "Explain the next move", copy: "We separate the practical fixes from the nice-to-haves. We explain why each one matters. You are free to act on it yourself." },
 ];
 
 const principles = [
   { title: "Evidence before certainty", copy: "AI answers vary by wording, location, account, and time. We show what was checked and avoid presenting one result as a guarantee." },
-  { title: "Plain language", copy: "You should be able to understand the finding, its limits, and the next step without learning a new set of acronyms." },
+  { title: "Plain language", copy: "You should understand the finding, its limits, and the next step. No new acronyms required." },
   { title: "Your choice after the review", copy: "An audit should leave you better informed. You can use the recommendations with your existing team or ask us about implementation." },
 ];
 
 const faqs = [
-  { q: "How much does an AI visibility audit cost?", a: "The preliminary check is free. The Basic Audit is listed at $150, with implementation and deeper support available at the prices shown on the pricing page. You can review the scope before choosing." },
+  { q: "How much does an AI visibility audit cost?", a: "The preliminary check is free. The Basic Audit is $150. Implementation and deeper support are priced on the pricing page. You can review the scope before choosing." },
   { q: "How long does it take?", a: "The Basic Audit is listed with delivery within 48 hours. Timing for other services depends on their scope; the current delivery details appear with each option." },
-  { q: "What is GEO (Generative Engine Optimization)?", a: "GEO is the work of making a business’s services, expertise, and location easier for AI-assisted search tools to understand and describe. It complements other ways customers find a business; it does not control or guarantee what a platform recommends." },
-  { q: "Is there a GEO audit service available in the UK?", a: "Reviews can be discussed remotely. Share your location and the platforms that matter to your customers, and we can confirm whether the current review scope is a fit." },
+  { q: "What is GEO (Generative Engine Optimization)?", a: "GEO means making your services, expertise, and location easy for AI tools to read and describe. It complements other ways customers find a business; it does not control or guarantee what a platform recommends." },
+  { q: "Is there a GEO audit service available in the UK?", a: "Reviews can be discussed remotely. Tell us your location and the platforms your customers use. We will confirm whether the review fits." },
   { q: "Can Australian businesses get a GEO audit?", a: "We can discuss a remote review for an Australian business. The useful platforms and local questions depend on your audience, so we confirm the scope before work begins." },
   { q: "Do you offer services in Canada?", a: "AscendantOps is based in Toronto. Contact us with your city and business type so we can confirm the right scope for your market." },
   { q: "Do you work with US businesses?", a: "We can discuss remote work with US businesses. Service fit depends on the market, platform coverage, and the questions you want the review to answer." },
-  { q: "My website ranks well on Google. Why is my AI visibility score low?", a: "Traditional search rankings and AI-generated answers are different experiences. An AI tool may draw on a broader set of pages and sources, and the answer can change with the question, location, and date. A review shows what appeared in the checks rather than treating one score as a prediction." },
-  { q: "Why should I trust your score?", a: "A score is a summary of a dated set of checks, not a universal measure or a promise of future recommendations. The report ties findings to the questions and platforms reviewed, explains the evidence available, and describes the limits of the result." },
+  { q: "My website ranks well on Google. Why is my AI visibility score low?", a: "Traditional search rankings and AI-generated answers are different experiences. AI tools draw on many sources. The answer can change with the question, the location, and the day. A review shows what appeared in the checks rather than treating one score as a prediction." },
+  { q: "Why should I trust your score?", a: "A score is a dated set of checks. It is not a universal measure, and it does not promise future results. The report links every finding to the questions and platforms we checked. It states the evidence and its limits." },
 ];
 
 const faqSchema = {
@@ -48,7 +48,7 @@ export default function About() {
           <div className="lg:col-span-7">
             <div className="label mb-6">About AscendantOps</div>
             <h1 className="font-editorial max-w-4xl text-5xl leading-[1.06] sm:text-6xl lg:text-7xl">A clearer view of what AI is saying <em className="text-[#0089a6]">about your business.</em></h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#4a5b6d] sm:text-xl">AscendantOps helps businesses examine how they appear in AI-assisted search, understand what the evidence can—and cannot—tell them, and choose a sensible next step.</p>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#4a5b6d] sm:text-xl">We show you how your business appears in AI search. We tell you what the evidence proves, and what it does not. Then you decide the next step.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/pricing" className="btn-primary px-6 py-3">Explore services</Link>
               <Link href="/contact" className="btn-secondary px-6 py-3">Ask a question</Link>
@@ -57,7 +57,7 @@ export default function About() {
           <aside className="rounded-[1.75rem] border border-[#c7eaf0] bg-[#e9f8fb] p-7 md:p-9 lg:col-span-5">
             <p className="text-sm font-bold uppercase tracking-[.14em] text-[#0089a6]">Our point of view</p>
             <p className="mt-4 font-editorial text-3xl leading-snug">A useful answer is more valuable than an impressive-sounding score.</p>
-            <p className="mt-4 leading-relaxed text-[#4a5b6d]">We show the observations behind a recommendation and where uncertainty remains, so you can decide what deserves your time.</p>
+            <p className="mt-4 leading-relaxed text-[#4a5b6d]">We show you the evidence behind each recommendation. We flag where the answer is uncertain. You decide what deserves your time.</p>
           </aside>
         </div>
       </section>
@@ -82,7 +82,7 @@ export default function About() {
         <div className="lg:col-span-5">
           <div className="label mb-5">What to expect</div>
           <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">Independent advice, grounded in what we can verify.</h2>
-          <p className="mt-6 text-lg leading-relaxed text-[#4a5b6d]">AI visibility is still changing. No consultant can control what an AI platform says or promise a business will be recommended. A careful review can show what appeared during the check and identify concrete ways to make your business information easier to understand.</p>
+          <p className="mt-6 text-lg leading-relaxed text-[#4a5b6d]">AI visibility is still changing. No consultant can control what an AI platform says or promise a business will be recommended. A careful review shows what appeared during the check. It also identifies ways to make your business easier to understand.</p>
         </div>
         <div className="grid gap-4 lg:col-span-6 lg:col-start-7">
           {principles.map((item, index) => <article key={item.title} className="rounded-2xl border border-[#d7e0e6] bg-white p-6 shadow-[0_16px_40px_-32px_rgba(16,29,44,.24)]">
@@ -101,9 +101,9 @@ export default function About() {
             <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">A report you can trace back to what was checked.</h2>
           </div>
           <div className="space-y-5 text-base leading-relaxed text-[#4a5b6d] lg:col-span-7 lg:col-start-6">
-            <p>The Basic Audit includes a written review of your business’s AI search visibility across five platforms, three specific findings, competitor context for your area and industry, and delivery within 48 hours. The report records the questions used and explains what appeared, what did not, and where sources were available.</p>
-            <p>If you choose implementation, the work can extend to addressing the issues identified and clarifying important information on your website. A broader transformation includes content work, competitor analysis, monitoring, and a before-and-after report as described in the service scope.</p>
-            <p>The report is meant to help you decide what deserves attention. It does not promise a particular ranking, recommendation, or business outcome. AI answers can vary by question, platform, location, and time; findings describe the checks performed and their limits.</p>
+            <p>The Basic Audit covers five AI platforms. You get three specific findings, competitor context for your area, and delivery within 48 hours. The report records the questions we asked. It shows what appeared, what did not, and which sources were available.</p>
+            <p>If you choose implementation, we fix the issues we found and clarify key information on your site. A broader transformation adds content work, competitor analysis, monitoring, and a before-and-after report.</p>
+            <p>The report is meant to help you decide what deserves attention. It does not promise a particular ranking, recommendation, or business outcome. AI answers vary by question, platform, location, and time. Our findings describe the checks we ran and their limits.</p>
             <p>You can use the recommendations with your own team. Implementation and ongoing support are options, not a condition of receiving the audit.</p>
           </div>
         </div>
