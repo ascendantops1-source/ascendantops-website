@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
+import SiteHeader from "../components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "AscendantOps — B2B AI Search Visibility & GEO Agency",
+  title: "AscendantOps — Helping Your Business Get Found by AI",
   description:
-    "AscendantOps audits your business's visibility across ChatGPT, Perplexity, and Google AI — then fixes what's broken. Free preliminary check. 48-hour delivery.",
+    "Independent AI visibility reviews and practical business advice. See what selected AI search tools say about your business and decide what to do next.",
   alternates: {
     canonical: "https://ascendantops.com",
     languages: {
@@ -38,72 +33,13 @@ export default function RootLayout({
     "@id": "https://ascendantops.com/#organization",
     "url": "https://ascendantops.com",
     "telephone": "+1-437-475-3637",
-    "priceRange": "$$",
     "sameAs": [
       "https://www.linkedin.com/in/ascendant-ops-0228a7439"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Toronto",
-      "addressRegion": "ON",
-      "addressCountry": "CA"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 43.6532,
-      "longitude": -79.3832
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "areaServed": [
-      { "@type": "Country", "name": "Canada" },
-      { "@type": "Country", "name": "United States" },
-      { "@type": "Country", "name": "United Kingdom" },
-      { "@type": "Country", "name": "Australia" },
-      { "@type": "Country", "name": "New Zealand" },
-      { "@type": "Country", "name": "Ireland" },
-      { "@type": "Country", "name": "Singapore" },
-      { "@type": "Country", "name": "Germany" },
-      { "@type": "Country", "name": "France" },
-      { "@type": "Country", "name": "Spain" },
-      { "@type": "Country", "name": "Italy" },
-      { "@type": "Country", "name": "Netherlands" },
-      { "@type": "Country", "name": "Sweden" },
-      { "@type": "Country", "name": "Norway" },
-      { "@type": "Country", "name": "Finland" },
-      { "@type": "Country", "name": "Denmark" },
-      { "@type": "Country", "name": "Switzerland" },
-      { "@type": "Country", "name": "Austria" },
-      { "@type": "Country", "name": "Belgium" },
-      { "@type": "Country", "name": "Poland" },
-      { "@type": "Country", "name": "Portugal" },
-      { "@type": "Country", "name": "Japan" },
-      { "@type": "Country", "name": "South Korea" },
-      { "@type": "Country", "name": "India" },
-      { "@type": "Country", "name": "United Arab Emirates" },
-      { "@type": "Country", "name": "Saudi Arabia" },
-      { "@type": "Country", "name": "Brazil" },
-      { "@type": "Country", "name": "Mexico" },
-      { "@type": "Country", "name": "Argentina" },
-      { "@type": "Country", "name": "Colombia" },
-      { "@type": "Country", "name": "South Africa" }
     ]
   };
 
   return (
-    <html lang="en" className={`${spaceGrotesk.variable}`}>
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -111,47 +47,23 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-brand-navy text-white antialiased min-h-screen flex flex-col">
-        <header className="w-full py-4 px-6 md:px-12 border-b border-white/5 glass sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-3">
-              <svg className="w-8 h-8 text-brand-cyan" viewBox="0 0 100 100" fill="none">
-                <path d="M50 15 L22 75 L36 75 L50 44 L64 75 L78 75 Z" fill="currentColor" />
-                <rect x="71" y="48" width="6" height="6" fill="#FFFFFF" className="animate-pulse" />
-                <rect x="79" y="56" width="6" height="6" fill="#00D2FF" />
-                <rect x="63" y="64" width="6" height="6" fill="#00D2FF" className="animate-pulse" />
-              </svg>
-              <span className="text-xl font-bold tracking-wider text-white hover:text-brand-cyan transition-colors">Ascendant<span className="text-brand-cyan">OPS</span>
-              </span>
-            </Link>
-            <nav className="hidden md:flex space-x-6 text-sm font-medium tracking-wide">
-              <Link href="/about" className="hover:text-brand-cyan transition-colors">About</Link>
-              <Link href="/services/geo" className="hover:text-brand-cyan transition-colors">GEO Audit</Link>
-              <Link href="/services/assessment" className="hover:text-brand-cyan transition-colors">Assessments</Link>
-              <Link href="/services/recurring" className="hover:text-brand-cyan transition-colors">Retainers</Link>
-              <Link href="/capital-audit" className="hover:text-brand-cyan transition-colors">Capital Audit</Link>
-              <Link href="/pricing" className="hover:text-brand-cyan transition-colors">Pricing</Link>
-              <Link href="/contact" className="hover:text-brand-cyan transition-colors">Contact</Link>
-            </nav>
-            <Link href="/contact" className="text-xs md:text-sm font-bold tracking-wider uppercase border border-brand-cyan text-brand-cyan px-4 py-2 rounded hover:bg-brand-cyan hover:text-brand-navy hover:shadow-[0_0_15px_rgba(0,210,255,0.4)] transition-all duration-300">
-              Free Audit Check
-            </Link>
-          </div>
-        </header>
+        <SiteHeader />
 
         <main className="flex-grow">{children}</main>
 
-        <footer className="w-full py-16 px-6 border-t border-white/5 bg-brand-dark text-center text-xs text-white/55">
+        <footer className="w-full border-t border-[#101d2c]/10 bg-[#f4f8fa] px-6 py-14 text-center text-sm text-[#647587]">
           <div className="max-w-7xl mx-auto flex flex-col justify-center items-center">
-            <div className="mb-8 flex justify-center items-center">
-              <img src="/logo.png" alt="AscendantOps Master Logo" className="h-24 w-auto object-contain opacity-80" />
+            <div className="mb-8 flex items-center justify-center gap-2">
+              <img src="/ascendant-symbol.png" alt="" className="h-14 w-[68px] object-contain" />
+              <img src="/ascendant-wordmark.png" alt="Ascendant Ops" className="h-10 w-[164px] object-contain" />
             </div>
-            <p className="mb-4">© {new Date().getFullYear()} AscendantOps. All Rights Reserved. Asynchronous AI Operations.</p>
-            <div className="flex space-x-6 justify-center">
-              <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <Link href="/services/geo" className="hover:text-white transition-colors">GEO</Link>
-              <Link href="/capital-audit" className="hover:text-white transition-colors">Capital Audit</Link>
-              <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <p className="mb-5">© {new Date().getFullYear()} AscendantOps. Clear advice for a changing search landscape.</p>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <Link href="/about" className="hover:text-[#007f9b] transition-colors">About</Link>
+              <Link href="/services/geo" className="hover:text-[#007f9b] transition-colors">AI visibility</Link>
+              <Link href="/capital-audit" className="hover:text-[#007f9b] transition-colors">Capital audit</Link>
+              <Link href="/pricing" className="hover:text-[#007f9b] transition-colors">Pricing</Link>
+              <Link href="/contact" className="hover:text-[#007f9b] transition-colors">Contact</Link>
             </div>
           </div>
         </footer>

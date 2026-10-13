@@ -1,185 +1,180 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from "next/link";
 import RoiCalculator from "../components/RoiCalculator";
+import ReportPreview from "../components/ReportPreview";
 
-const cityVideos: Record<string, string> = {
-  'Toronto': '/videos/toronto-hero.mp4',
-  'New York': '/videos/new_york-hero.mp4',
-  'London': '/videos/london-hero.mp4',
-  'Sydney': '/videos/sydney-hero.mp4',
-  'default': '/videos/calgary-hero.mp4'
-};
+const steps = [
+  {
+    number: "01",
+    title: "We take a look",
+    copy: "We ask the same kinds of questions a customer might ask, across five AI search platforms.",
+  },
+  {
+    number: "02",
+    title: "We make sense of it",
+    copy: "You get a clear report that shows where your business appears, where it doesn’t, and what may be affecting that.",
+  },
+  {
+    number: "03",
+    title: "You decide what comes next",
+    copy: "We lay out practical next steps. You can make the changes yourself or ask us to help.",
+  },
+];
 
 export default function Home() {
-  const [userCity, setUserCity] = useState<string>('default');
-
-  useEffect(() => {
-    fetch('https://ipapi.co/json/')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.city && cityVideos[data.city]) {
-          setUserCity(data.city);
-        } else {
-          setUserCity('default');
-        }
-      })
-      .catch(() => setUserCity('default'));
-  }, []);
-
   return (
-    <div className="w-full bg-brand-navy space-y-24">
-      
-      <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-white/5">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0" key={userCity}>
-          <source src={cityVideos[userCity]} type="video/mp4" />
-          <source src={cityVideos['default']} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-brand-navy/65 z-10" />
-
-        <div className="relative z-20 max-w-7xl mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12">
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">
-              Is Your Business <br />
-              <span className="bg-gradient-to-r from-white via-slate-100 to-brand-cyan bg-clip-text text-transparent glow-text font-extrabold">
-                Invisible to AI?
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
-              Free tools check your website. We check whether AI actually recommends your business. Scored across five platforms. Delivered in 48 hours.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-brand-cyan text-brand-navy font-bold tracking-wider uppercase rounded hover:bg-white hover:text-brand-navy hover:shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300 text-center text-sm">
-                Get Your Free AI Visibility Check
-              </Link>
-            </div>
+    <div className="bg-[#FFFFFF] text-[#101d2c]">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-14 md:px-12 md:pb-28 md:pt-24 lg:grid-cols-12 lg:gap-16">
+        <div className="space-y-7 lg:col-span-6">
+          <div className="label">Independent AI visibility advice · Toronto and beyond</div>
+          <h1 className="font-editorial max-w-2xl text-5xl leading-[1.04] text-[#101d2c] sm:text-6xl lg:text-7xl">
+            Good businesses deserve to be <em className="text-[#0089a6]">found.</em>
+          </h1>
+          <p className="max-w-xl text-lg leading-relaxed text-[#4a5b6d] sm:text-xl">
+            See how your business appears when people ask AI who to call, hire, and trust. Get the evidence in plain language, plus practical options for what to do next.
+          </p>
+          <div className="flex flex-col gap-4 pt-1 sm:flex-row sm:items-center">
+            <Link href="/contact?service=Free%20Preliminary%20Check" className="btn-primary inline-flex items-center justify-center gap-3 px-7 py-4 text-base">
+              Start with a free check <span aria-hidden="true">→</span>
+            </Link>
+            <span className="text-sm text-[#647587]">No credit card · No promise of a particular ranking</span>
           </div>
-          <div className="lg:col-span-5">
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-brand-cyan/20 glass shadow-[0_0_30px_rgba(0,210,255,0.1)]">
-              <img src="/hero-chat.png" alt="AI Phone Search" className="w-full h-full object-cover opacity-90" />
-            </div>
+        </div>
+
+        <figure className="relative lg:col-span-6">
+          <div className="overflow-hidden rounded-[2rem_2rem_2rem_7rem] bg-[#e9f8fb] shadow-[0_24px_60px_-34px_rgba(38,55,47,0.48)]">
+            <img
+              src="/toronto-skyline.png"
+              alt="Toronto skyline at sunset"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </div>
+          <figcaption className="absolute -bottom-5 left-5 max-w-[19rem] rounded-2xl border border-[#101d2c]/10 bg-white px-5 py-4 text-sm leading-relaxed text-[#4a5b6d] shadow-lg sm:left-8">
+            <span className="mb-1 block text-xs font-bold uppercase tracking-[0.12em] text-[#0089a6]">Based in Toronto</span>
+            Independent advice for businesses finding their footing in a changing search landscape.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="border-y border-[#101d2c]/10 bg-[#e9f8fb]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-7 sm:grid-cols-3 md:px-12">
+          <div className="flex items-center gap-4 sm:border-r sm:border-[#101d2c]/15">
+            <span className="font-editorial text-3xl text-[#0089a6]">5</span>
+            <span className="text-sm leading-snug text-[#4a5b6d]">AI platforms checked<br />in one review</span>
+          </div>
+          <div className="flex items-center gap-4 sm:border-r sm:border-[#101d2c]/15 sm:pl-6">
+            <span className="font-editorial text-3xl text-[#0089a6]">48h</span>
+            <span className="text-sm leading-snug text-[#4a5b6d]">A useful report<br />without the long wait</span>
+          </div>
+          <div className="flex items-center gap-4 sm:pl-6">
+            <span className="font-editorial text-3xl text-[#0089a6]">$0</span>
+            <span className="text-sm leading-snug text-[#4a5b6d]">To start with a<br />preliminary check</span>
           </div>
         </div>
       </section>
 
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-white tracking-tight leading-tight">The Reality of AI Search</h2>
-          <p className="text-white/70 font-light leading-relaxed text-base">
-            Ask ChatGPT to recommend a business near you. It gives a short list. Those are the companies AI can clearly name. Everyone else is left out.
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-24 md:px-12 md:py-32 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <div className="label mb-5">A changing way to find local help</div>
+          <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">
+            The question is familiar. The place people ask is changing.
+          </h2>
+        </div>
+        <div className="space-y-6 text-lg leading-relaxed text-[#4a5b6d] lg:col-span-6 lg:col-start-7">
+          <p>
+            People still ask friends, neighbours, and search engines who they should trust. Now they’re asking tools like ChatGPT and Gemini, too.
+          </p>
+          <p>
+            Those tools build an answer from what they can understand about a business across its website and other sources. We help you see what they’re picking up—and where a clearer picture could help.
+          </p>
+          <p className="border-l-2 border-[#00a9cc] pl-5 text-base text-[#101d2c]">
+            No secret formula or guaranteed rankings. Just a careful look, an honest explanation, and practical next steps.
           </p>
         </div>
-        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-white/5 shadow-[0_0_30px_rgba(0,210,255,0.05)]">
-          <img src="/image2.png" alt="Network Visualization" className="w-full h-full object-cover" />
-        </div>
       </section>
 
-      
-      <section className="w-full py-20 px-6 md:px-12 max-w-4xl mx-auto text-center border-t border-b border-white/5 bg-brand-dark/20 rounded-xl space-y-8">
-        <h2 className="text-3xl font-bold text-white tracking-tight">See the Outcome in 40 Seconds</h2>
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-brand-cyan/20 glass">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/outcome-Journey.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p className="text-white/62 text-sm max-w-md mx-auto">This is what we deliver for you. We find where you are invisible. We fix it. We verify the change.</p>
-      </section>
-
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto space-y-12 border-t border-white/5">
-        <div className="text-center">
-            <h2 className="text-3xl font-bold text-white tracking-tight">We don't just audit your site</h2>
-            <p className="text-white/60 mt-2">We audit your entire competitive landscape.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass p-8 rounded-lg text-center">
-                <div className="text-brand-cyan mb-4">🔍</div>
-                <h4 className="font-bold mb-3">Every Competitor Scored</h4>
-                <p className="text-white/60 text-sm">We score every company in your industry and city. You get your rank against them.</p>
-            </div>
-            <div className="glass p-8 rounded-lg text-center">
-                <div className="text-brand-cyan mb-4">📈</div>
-                <h4 className="font-bold mb-3">Named Competitors Identified</h4>
-                <p className="text-white/60 text-sm">Your report names the businesses that show up in AI results instead of you. You will know who is taking your spot.</p>
-            </div>
-            <div className="glass p-8 rounded-lg text-center">
-                <div className="text-brand-cyan mb-4">🛡️</div>
-                <h4 className="font-bold mb-3">Verified Across 5 Platforms</h4>
-                <p className="text-white/60 text-sm">ChatGPT, Perplexity, Google AI, Gemini, and Bing Copilot — all checked simultaneously.</p>
-            </div>
-        </div>
-      </section>
-
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto space-y-12 border-t border-white/5">
-        <h2 className="text-3xl font-bold text-center text-white tracking-tight">The Sovereign Optimization Process</h2>
-        <div className="relative aspect-[16/6] w-full max-w-4xl mx-auto rounded-lg overflow-hidden border border-white/5">
-          <img src="/process-diagram.png" alt="AscendantOps three-step process: Discover, Diagnose, Dominate" className="w-full h-full object-cover" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left mt-4">
-          <div className="glass p-6 rounded-lg"><h4 className="font-bold text-brand-cyan mb-2">1. Discover</h4><p className="text-white/60 text-sm">We audit your AI visibility across five platforms: ChatGPT, Perplexity, Google AI, Gemini and Bing Copilot.</p></div>
-          <div className="glass p-6 rounded-lg"><h4 className="font-bold text-brand-cyan mb-2">2. Diagnose</h4><p className="text-white/60 text-sm">You receive a scored report with critical findings, delivered within 48 hours.</p></div>
-          <div className="glass p-6 rounded-lg"><h4 className="font-bold text-brand-cyan mb-2">3. Dominate</h4><p className="text-white/60 text-sm">We give you a prioritised action plan, with optional implementation by our team.</p></div>
-        </div>
-      </section>
-
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center border-t border-white/5 pt-16">
-        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-white/5">
-          <img src="/image3.png" alt="Sample AscendantOps GEO report showing overall score, five category scores, named local competitors and prioritised fixes" className="w-full h-full object-cover" />
-        </div>
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-white tracking-tight">Here is Exactly What You Receive</h2>
-          <p className="text-white/70 font-light">No vague recommendations. No standard agency PDFs. You get clear, verifiable benchmarks that either move or they don&apos;t.</p>
-        </div>
-      </section>
-
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-4xl mx-auto border-t border-white/5 pt-16 space-y-6">
-        <h2 className="text-3xl font-bold text-center text-white tracking-tight">What is AI invisibility costing you?</h2>
-        <p className="text-white/70 text-center font-light text-sm">Move the sliders to see your number.</p>
-        <RoiCalculator />
-        <p className="text-white/60 text-sm text-center italic">Most local businesses have never been checked. We audited Edmonton and Calgary. The average score was in the low 70s. Our own site scored 49. You can still be first in your category. That window is closing.</p>
-      </section>
-
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 pt-16 text-center space-y-12">
-        <h2 className="text-3xl font-bold text-white tracking-tight">Transparent pricing</h2>
-        
-        
-        <div className="glass p-8 rounded-lg border-2 border-brand-cyan/40 text-center max-w-2xl mx-auto mb-12">
-          <span className="bg-brand-cyan text-brand-navy text-[11px] font-bold uppercase px-3 py-1 rounded">Bundled — three services, one price</span>
-          <h3 className="text-2xl font-bold uppercase text-brand-cyan mt-4 mb-2">The Sovereign Bundle</h3>
-          <p className="text-brand-cyan text-3xl font-bold mb-4">$699 <span className="text-xs text-white/55">/ month</span></p>
-          <a href="https://buy.stripe.com/4gMaEXezJ8y419Y6ltdUY08" className="inline-block px-8 py-4 bg-brand-cyan text-brand-navy font-bold uppercase rounded">Activate Sovereign Bundle</a>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          
-          <div className="glass p-8 rounded-lg text-center">
-            <h3 className="text-lg font-bold mb-2">Competitor Monitoring</h3>
-            <p className="text-brand-cyan text-xl font-bold mb-4">$299/mo</p>
-            <a href="https://buy.stripe.com/6oUeVd77h01ycSG8tBdUY05" className="block py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy rounded uppercase text-[11px] font-bold">Secure Retainer</a>
+      <section className="bg-[#e9f8fb] px-6 py-24 text-[#101d2c] md:px-12 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-14 max-w-2xl">
+            <div className="mb-5 text-xs font-bold uppercase tracking-[0.14em] text-[#0089a6]">A straightforward process</div>
+            <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">You’ll know what we found and what to do next.</h2>
           </div>
-          <div className="glass p-8 rounded-lg text-center">
-            <h3 className="text-lg font-bold mb-2">Autopilot Stack</h3>
-            <p className="text-brand-cyan text-xl font-bold mb-4">$299/mo</p>
-            <a href="https://buy.stripe.com/00wfZhfDNeWs5qe4dldUY06" className="block py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy rounded uppercase text-[11px] font-bold">Secure Retainer</a>
+          <div className="grid grid-cols-1 gap-0 md:grid-cols-3">
+            {steps.map((step, index) => (
+              <article key={step.number} className={`py-7 md:pr-9 ${index > 0 ? "border-t border-white/20 md:border-l md:border-t-0 md:pl-9" : "border-t border-white/20 md:border-t-0"}`}>
+                <div className="mb-8 font-editorial text-4xl text-[#0089a6]">{step.number}</div>
+                <h3 className="mb-3 text-xl font-semibold text-[#101d2c]">{step.title}</h3>
+                <p className="max-w-sm text-base leading-relaxed text-[#101d2c]/75">{step.copy}</p>
+              </article>
+            ))}
           </div>
-          <div className="glass p-8 rounded-lg text-center">
-            <h3 className="text-lg font-bold mb-2">GEO Monitoring</h3>
-            <p className="text-brand-cyan text-xl font-bold mb-4">$299/mo</p>
-            <a href="https://buy.stripe.com/7sY00j3V53dK7ymdNVdUY07" className="block py-2 bg-white/10 hover:bg-brand-cyan hover:text-brand-navy rounded uppercase text-[11px] font-bold">Secure Retainer</a>
+          <Link href="/services/geo" className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[#00a9cc] underline decoration-[#00a9cc]/50 underline-offset-4 hover:decoration-[#00a9cc]">
+            See what the review includes <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 md:px-12 md:py-32 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <div className="label mb-5">A sample of the format</div>
+          <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">Useful advice should be easy to understand.</h2>
+          <p className="mt-6 text-lg leading-relaxed text-[#4a5b6d]">
+            A review connects each observation to a question, a source, and a practical next step. This example shows the kind of detail to expect; it is illustrative, not a client result.
+          </p>
+          <Link href="/services/geo" className="mt-7 inline-flex items-center gap-2 font-semibold text-[#0089a6] hover:text-[#006f88]">
+            Take a closer look <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="lg:col-span-7"><ReportPreview /></div>
+      </section>
+
+      <section className="bg-white px-6 py-24 md:px-12 md:py-28">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <div className="label mb-5">Advice with the jargon removed</div>
+            <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">You deserve an answer you can use.</h2>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#4a5b6d]">
+              Our job is to translate a fast-changing field into useful choices for your business. We’ll explain what matters, what doesn’t, and where to start—whether or not you decide to work with us.
+            </p>
+            <Link href="/about" className="mt-7 inline-flex items-center gap-2 font-semibold text-[#0089a6] hover:text-[#006f88]">
+              Get to know us <span aria-hidden="true">→</span>
+            </Link>
           </div>
+          <div className="rounded-3xl border border-[#c7eaf0] bg-[#e9f8fb] p-7 lg:col-span-6 lg:col-start-7 md:p-10">
+            <div className="mb-4 font-editorial text-6xl leading-none text-[#00a9cc]">“</div>
+            <p className="font-editorial text-3xl leading-snug text-[#101d2c] sm:text-4xl">
+              We can’t control what AI says. We can help make your business easier to understand.
+            </p>
+            <p className="mt-6 text-sm font-semibold text-[#647587]">The principle behind every AscendantOps review</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 py-24 md:px-12 md:py-28">
+        <div className="mb-9 text-center">
+          <div className="label mb-4">A useful place to start</div>
+          <h2 className="font-editorial text-4xl sm:text-5xl">What might a missed recommendation mean?</h2>
+          <p className="mt-4 text-[#647587]">Use the calculator for a rough estimate based on your own numbers.</p>
+        </div>
+        <div className="rounded-[1.5rem] border border-[#101d2c]/10 bg-white p-6 shadow-[0_20px_55px_-38px_rgba(38,55,47,0.42)] sm:p-10">
+          <RoiCalculator />
+        </div>
+        <p className="mx-auto mt-5 max-w-2xl text-center text-xs leading-relaxed text-[#8492a0]">This is an estimate to help you think through the opportunity. Your actual results will depend on your market and business.</p>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-10 md:px-12">
+        <div className="relative overflow-hidden rounded-[2rem] bg-[#e9f8fb] px-7 py-12 text-[#101d2c] sm:px-12 md:py-16">
+          <div className="relative z-10 max-w-3xl">
+            <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-[#0089a6]">Start with a conversation</div>
+            <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">Let’s make this easier to figure out.</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#101d2c]/75">
+              Tell us a little about your business. We’ll start with a no-cost check and explain what we find in plain language.
+            </p>
+            <Link href="/contact?service=Free%20Preliminary%20Check" className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 font-semibold text-[#101d2c] transition-colors hover:bg-[#c7eaf0]">
+              Ask for your free check <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <div aria-hidden="true" className="absolute -bottom-32 -right-12 h-80 w-80 rounded-full border border-white/10 md:h-[26rem] md:w-[26rem]" />
+          <div aria-hidden="true" className="absolute -bottom-20 -right-0 h-56 w-56 rounded-full border border-white/10 md:h-72 md:w-72" />
         </div>
       </section>
     </div>

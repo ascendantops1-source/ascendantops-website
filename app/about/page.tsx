@@ -1,274 +1,146 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import RoiCalculator from "../../components/RoiCalculator";
 
 export const metadata: Metadata = {
-  title: "About Us — AscendantOps",
-  description:
-    "AscendantOps is a Toronto-based AI visibility consultancy serving businesses in 30+ countries. We score and optimize your presence across all major AI search platforms.",
+  title: "About AscendantOps | Clear, independent AI visibility advice",
+  description: "Learn how AscendantOps reviews AI visibility, explains its findings, and gives businesses practical next steps without promising rankings.",
+};
+
+const method = [
+  { number: "01", title: "Start with real questions", copy: "We look at the kinds of questions a prospective customer might ask, then check what selected AI search tools return for your business and market." },
+  { number: "02", title: "Show the evidence", copy: "Findings are tied to what we observed: the prompt, platform, date, and available sources. AI answers can change, so a review is a dated snapshot—not a permanent score." },
+  { number: "03", title: "Explain the next move", copy: "We separate practical fixes from lower-priority ideas, explain why each one matters, and leave you free to act on the advice yourself." },
+];
+
+const principles = [
+  { title: "Evidence before certainty", copy: "AI answers vary by wording, location, account, and time. We show what was checked and avoid presenting one result as a guarantee." },
+  { title: "Plain language", copy: "You should be able to understand the finding, its limits, and the next step without learning a new set of acronyms." },
+  { title: "Your choice after the review", copy: "An audit should leave you better informed. You can use the recommendations with your existing team or ask us about implementation." },
+];
+
+const faqs = [
+  { q: "How much does an AI visibility audit cost?", a: "The preliminary check is free. The Basic Audit is listed at $150, with implementation and deeper support available at the prices shown on the pricing page. You can review the scope before choosing." },
+  { q: "How long does it take?", a: "The Basic Audit is listed with delivery within 48 hours. Timing for other services depends on their scope; the current delivery details appear with each option." },
+  { q: "What is GEO (Generative Engine Optimization)?", a: "GEO is the work of making a business’s services, expertise, and location easier for AI-assisted search tools to understand and describe. It complements other ways customers find a business; it does not control or guarantee what a platform recommends." },
+  { q: "Is there a GEO audit service available in the UK?", a: "Reviews can be discussed remotely. Share your location and the platforms that matter to your customers, and we can confirm whether the current review scope is a fit." },
+  { q: "Can Australian businesses get a GEO audit?", a: "We can discuss a remote review for an Australian business. The useful platforms and local questions depend on your audience, so we confirm the scope before work begins." },
+  { q: "Do you offer services in Canada?", a: "AscendantOps is based in Toronto. Contact us with your city and business type so we can confirm the right scope for your market." },
+  { q: "Do you work with US businesses?", a: "We can discuss remote work with US businesses. Service fit depends on the market, platform coverage, and the questions you want the review to answer." },
+  { q: "My website ranks well on Google. Why is my AI visibility score low?", a: "Traditional search rankings and AI-generated answers are different experiences. An AI tool may draw on a broader set of pages and sources, and the answer can change with the question, location, and date. A review shows what appeared in the checks rather than treating one score as a prediction." },
+  { q: "Why should I trust your score?", a: "A score is a summary of a dated set of checks, not a universal measure or a promise of future recommendations. The report ties findings to the questions and platforms reviewed, explains the evidence available, and describes the limits of the result." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
 };
 
 export default function About() {
-  const faqs = [
-    {
-      q: "How much does an AI visibility audit cost?",
-      a: "The first check is free. The Basic Audit is $150. You get your score, a written report with three issues, and a comparison with local competitors. Ongoing management is $699 per month."
-    },
-    {
-      q: "How long does it take?",
-      a: "The free check usually comes back within a few hours. The full audit takes about one business day. Written reports arrive within 48 hours."
-    },
-    {
-      q: "What is GEO (Generative Engine Optimization)?",
-      a: "GEO means making sure AI tools like ChatGPT and Google AI name your business when someone asks for a recommendation in your city. SEO targets how Google ranks your site. GEO targets what AI says when asked a direct question."
-    },
-    {
-      q: "Is there a GEO audit service available in the UK?",
-      a: "Yes. We work with UK businesses remotely. We check how you appear on the AI platforms your customers use."
-    },
-    {
-      q: "Can Australian businesses get a GEO audit?",
-      a: "Yes. We work with Australian businesses remotely, including Sydney, Melbourne, Brisbane and Perth."
-    },
-    {
-      q: "Do you offer services in Canada?",
-      a: "We are headquartered in Toronto and serve Canadian businesses coast to coast, in both English and French."
-    },
-    {
-      q: "Do you work with US businesses?",
-      a: "Yes. We serve businesses across all 50 states."
-    },
-    {
-      q: "My website ranks well on Google. Why is my AI visibility score low?",
-      a: "Ranking on Google and being named by ChatGPT are two different things. Your site can rank first on Google and still never come up in ChatGPT. Our own site scored 49 out of 100. Its technical score was 90."
-    },
-    {
-      q: "Why should I trust your score?",
-      a: "Every point comes from a signal we can measure on your live site. That includes your structured data, your schema markup, and your technical setup. Run the audit twice and you get the same score. We publish our own score too, and we update it as it improves."
-    }
-  ];
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((f) => ({
-      "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": { "@type": "Answer", "text": f.a }
-    }))
-  };
-
   return (
-    <div className="w-full py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-24">
-      
-      <section className="text-center max-w-4xl mx-auto space-y-6">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-          Your Next Customer Is Asking AI.<br />
-          <span className="bg-gradient-to-r from-white via-slate-100 to-brand-cyan bg-clip-text text-transparent glow-text font-extrabold">Are You the Answer?</span>
-        </h1>
-        <p className="text-lg md:text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
-          AscendantOps helps businesses show up when AI recommends who to hire, buy from, or trust — in any industry, any city, anywhere in the world.
-        </p>
-      </section>
-
-      
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-white tracking-tight">How Customers Find You Has Changed</h2>
-          <div className="space-y-4 text-white/70 font-light leading-relaxed">
-            <p>
-              Your customers used to Google you. Now millions of them ask ChatGPT, Perplexity, or Google AI instead.
-            </p>
-            <p>
-              They type things like "best plumber near me" or "most trusted accountant in London" — and they go with whoever AI recommends.
-            </p>
-            <p>
-              If your business isn't in that answer, that customer goes to your competitor. Not because you did anything wrong. Simply because AI doesn't know you exist yet.
-            </p>
+    <div className="bg-white text-[#101d2c]">
+      <section className="mx-auto max-w-7xl px-6 pb-20 pt-16 md:px-12 md:pb-28 md:pt-24">
+        <div className="grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <div className="label mb-6">About AscendantOps</div>
+            <h1 className="font-editorial max-w-4xl text-5xl leading-[1.06] sm:text-6xl lg:text-7xl">A clearer view of what AI is saying <em className="text-[#0089a6]">about your business.</em></h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#4a5b6d] sm:text-xl">AscendantOps helps businesses examine how they appear in AI-assisted search, understand what the evidence can—and cannot—tell them, and choose a sensible next step.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/pricing" className="btn-primary px-6 py-3">Explore services</Link>
+              <Link href="/contact" className="btn-secondary px-6 py-3">Ask a question</Link>
+            </div>
           </div>
-        </div>
-        <div className="h-80 rounded-lg border border-white/5 relative overflow-hidden shadow-[0_0_30px_rgba(0,210,255,0.05)]">
-          <img src="/toronto-skyline.png" alt="Toronto Skyline" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent z-10" />
+          <aside className="rounded-[1.75rem] border border-[#c7eaf0] bg-[#e9f8fb] p-7 md:p-9 lg:col-span-5">
+            <p className="text-sm font-bold uppercase tracking-[.14em] text-[#0089a6]">Our point of view</p>
+            <p className="mt-4 font-editorial text-3xl leading-snug">A useful answer is more valuable than an impressive-sounding score.</p>
+            <p className="mt-4 leading-relaxed text-[#4a5b6d]">We show the observations behind a recommendation and where uncertainty remains, so you can decide what deserves your time.</p>
+          </aside>
         </div>
       </section>
 
-      
-      <section className="space-y-12">
-        <h2 className="text-3xl font-bold text-center text-white tracking-tight">The Hidden Cost of Being Invisible to AI</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass p-8 rounded-lg glass-hover space-y-4">
-            <h4 className="text-lg font-bold text-white">Your competitors are getting recommended. You're not.</h4>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
-              Every time AI recommends someone in your industry and it is not you, that is a customer your marketing helped attract. And it went to someone else. This is happening hundreds of times a month.
-            </p>
+      <section className="border-y border-[#d7e0e6] bg-[#f4f8fa] px-6 py-20 md:px-12 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <div className="label mb-5">How a review works</div>
+            <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">A transparent process, from question to next step.</h2>
           </div>
-
-          <div className="glass p-8 rounded-lg glass-hover space-y-4">
-            <h4 className="text-lg font-bold text-white">Google ranking doesn't fix this.</h4>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
-              Being on page one of Google and being recommended by AI are two completely different things. Most businesses are optimized for how search worked five years ago. AI search works differently — and almost nobody has caught up yet.
-            </p>
-          </div>
-
-          <div className="glass p-8 rounded-lg glass-hover space-y-4">
-            <h4 className="text-lg font-bold text-white">The longer you wait, the harder it gets.</h4>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
-              Businesses appearing in AI results today are building a trust relationship with those platforms that compounds over time. The gap between them and businesses that haven't addressed this yet grows every single month.
-            </p>
+          <div className="mt-12 grid gap-0 md:grid-cols-3">
+            {method.map((item, index) => <article key={item.number} className={`border-t border-[#d7e0e6] py-7 md:pr-8 ${index > 0 ? "md:border-l md:pl-8" : ""}`}>
+              <div className="font-editorial text-4xl text-[#00a9cc]">{item.number}</div>
+              <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-3 leading-relaxed text-[#4a5b6d]">{item.copy}</p>
+            </article>)}
           </div>
         </div>
       </section>
 
-      
-      <section className="py-12 border-t border-b border-white/5 text-center bg-brand-dark/20 rounded-xl max-w-4xl mx-auto p-8 space-y-8 shadow-[inset_0_0_30px_rgba(0,210,255,0.01)]">
-        <h2 className="text-2xl font-bold text-brand-cyan uppercase tracking-wider">What Is One Missed Customer Actually Worth?</h2>
-        <div className="space-y-4 text-white/80 font-light">
-          <p className="text-xl">If one new client is worth <span className="text-brand-cyan font-bold">$2,500</span> to your business...</p>
-          <p className="text-xl">And AI search is driving <span className="text-brand-cyan font-bold">20%</span> of new customer decisions...</p>
-          <p className="text-xl">And your business isn't appearing in those results...</p>
-          <p className="text-2xl font-bold mt-6 text-white">
-            That's <span className="text-red-500">$500</span> of every $2,500 opportunity going to someone else.
-          </p>
-          <p className="text-sm text-white/55 uppercase tracking-widest mt-2">Every Single Month.</p>
+      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <div className="label mb-5">What to expect</div>
+          <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">Independent advice, grounded in what we can verify.</h2>
+          <p className="mt-6 text-lg leading-relaxed text-[#4a5b6d]">AI visibility is still changing. No consultant can control what an AI platform says or promise a business will be recommended. A careful review can show what appeared during the check and identify concrete ways to make your business information easier to understand.</p>
         </div>
-
-        
-        <div className="mt-8">
-          <RoiCalculator />
+        <div className="grid gap-4 lg:col-span-6 lg:col-start-7">
+          {principles.map((item, index) => <article key={item.title} className="rounded-2xl border border-[#d7e0e6] bg-white p-6 shadow-[0_16px_40px_-32px_rgba(16,29,44,.24)]">
+            <div className="flex gap-4">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#e9f8fb] text-sm font-bold text-[#0089a6]">{index + 1}</span>
+              <div><h3 className="font-semibold">{item.title}</h3><p className="mt-2 leading-relaxed text-[#647587]">{item.copy}</p></div>
+            </div>
+          </article>)}
         </div>
       </section>
 
-      
-      <section className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto space-y-12 border-t border-white/5">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-white tracking-tight">This Week We Audited</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-2xl font-bold text-brand-cyan">6</h4>
-            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Businesses Audited So Far</p>
-            <p className="text-white/60 text-xs font-light mt-1">Across Edmonton, Calgary, and Toronto.</p>
+      <section className="border-y border-[#d7e0e6] bg-[#f4f8fa] px-6 py-20 md:px-12 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <div className="label mb-5">What the review includes</div>
+            <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">A report you can trace back to what was checked.</h2>
           </div>
-          <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-2xl font-bold text-brand-cyan">71</h4>
-            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Current Visibility</p>
-            <p className="text-white/60 text-xs font-light mt-1">Percentage appearing in ChatGPT results.</p>
-          </div>
-          <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-2xl font-bold text-brand-cyan">49/100</h4>
-            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Average Score</p>
-            <p className="text-white/60 text-xs font-light mt-1">Baseline across all industries.</p>
-          </div>
-          <div className="glass p-6 rounded-lg text-center">
-            <h4 className="text-lg font-bold text-brand-cyan mt-1">Plumbing, Legal, Dental</h4>
-            <p className="text-xs uppercase tracking-widest text-white/62 mt-2">Industries Audited</p>
-            <p className="text-white/60 text-xs font-light mt-1">+ HVAC, Marketing, Financial Services.</p>
+          <div className="space-y-5 text-base leading-relaxed text-[#4a5b6d] lg:col-span-7 lg:col-start-6">
+            <p>The Basic Audit includes a written review of your business’s AI search visibility across five platforms, three specific findings, competitor context for your area and industry, and delivery within 48 hours. The report records the questions used and explains what appeared, what did not, and where sources were available.</p>
+            <p>If you choose implementation, the work can extend to addressing the issues identified and clarifying important information on your website. A broader transformation includes content work, competitor analysis, monitoring, and a before-and-after report as described in the service scope.</p>
+            <p>The report is meant to help you decide what deserves attention. It does not promise a particular ranking, recommendation, or business outcome. AI answers can vary by question, platform, location, and time; findings describe the checks performed and their limits.</p>
+            <p>You can use the recommendations with your own team. Implementation and ongoing support are options, not a condition of receiving the audit.</p>
           </div>
         </div>
       </section>
 
-            
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <section className="w-full py-16 px-6 md:px-12 max-w-4xl mx-auto border-t border-white/5 space-y-8">
-        <h2 className="text-3xl font-bold text-center text-white tracking-tight">Regional Availability & FAQs</h2>
-        <div className="space-y-4">
-          {faqs.map((f, i) => (
-            <details key={i} className="group border border-white/10 rounded-lg p-6 bg-brand-dark/20 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h3 className="text-lg font-bold text-white group-open:text-brand-cyan transition-colors">{f.q}</h3>
-                <span className="ml-1.5 flex-shrink-0 rounded-full bg-white/10 p-1.5 text-white/62 group-open:rotate-180 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
+      <section className="mx-auto max-w-5xl px-6 py-20 md:px-12 md:py-24" aria-labelledby="about-faq-title">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="label mb-5">Common questions</div>
+          <h2 id="about-faq-title" className="font-editorial text-4xl leading-tight sm:text-5xl">A few things people ask before starting.</h2>
+        </div>
+        <div className="mt-10 space-y-3">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="group rounded-2xl border border-[#d7e0e6] bg-white p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#142536] marker:hidden">
+                {faq.q}
+                <span aria-hidden="true" className="shrink-0 text-xl text-[#0089a6] transition-transform group-open:rotate-45">+</span>
               </summary>
-              <p className="mt-4 text-white/70 font-light leading-relaxed text-sm">{f.a}</p>
+              <p className="mt-4 max-w-3xl leading-relaxed text-[#647587]">{faq.a}</p>
             </details>
           ))}
         </div>
       </section>
 
-      
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center border-t border-white/5 pt-16">
-        <div className="relative h-96 rounded-lg overflow-hidden border border-white/5 shadow-[0_0_30px_rgba(0,210,255,0.05)]">
-          <img src="/aria-headshot.png" alt="ARIA AI" className="w-full h-full object-cover" />
-        </div>
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-white tracking-tight">We Built the Tool. We Run the Numbers. You Get the Answer.</h2>
-          <p className="text-white/70 font-light leading-relaxed">
-            Most agencies charge $5,000 or more per month and take weeks to deliver. We deliver the same analysis in 48 hours, starting at $150.
-          </p>
-          <p className="text-white/70 font-light leading-relaxed">
-            No retainer required. No jargon. No vague recommendations. Just a clear score, what's hurting it, and exactly what to do about it.
-          </p>
-        </div>
-      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      
-      <section className="grid grid-cols-1 md:grid-cols-5 gap-6">
-        <div className="glass p-6 rounded-lg text-center space-y-2">
-          <h4 className="text-2xl font-bold text-brand-cyan">5</h4>
-          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Platforms Checked</p>
-        </div>
-        <div className="glass p-6 rounded-lg text-center space-y-2">
-          <h4 className="text-2xl font-bold text-brand-cyan">48h</h4>
-          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Turnaround</p>
-        </div>
-        <div className="glass p-6 rounded-lg text-center space-y-2">
-          <h4 className="text-2xl font-bold text-brand-cyan">5</h4>
-          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Categories</p>
-        </div>
-        <div className="glass p-6 rounded-lg text-center space-y-2">
-          <h4 className="text-sm font-bold text-brand-cyan">CAN, USA, UK, AUS + 30</h4>
-          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Countries Served</p>
-        </div>
-        <div className="glass p-6 rounded-lg text-center space-y-2">
-          <h4 className="text-2xl font-bold text-brand-cyan">48h</h4>
-          <p className="text-xs uppercase tracking-wider text-white/62 mt-2">Audit Report</p>
-        </div>
-      </section>
-
-      
-      <section className="space-y-12 border-t border-white/5 pt-16">
-        <h2 className="text-3xl font-bold text-center text-white tracking-tight">What Makes AscendantOps Different</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="space-y-3">
-            <h4 className="text-lg font-bold text-white border-b border-brand-cyan/20 pb-2">You see exactly what we see.</h4>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
-              Every score, every finding, every recommendation is explained in plain English. You'll understand exactly why your score is what it is and what it would take to improve it.
-            </p>
+      <section className="bg-[#e9f8fb] px-6 py-20 md:px-12 md:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <div className="label mb-5">A practical first step</div>
+            <h2 className="font-editorial text-4xl leading-tight sm:text-5xl">You don’t need to take our word for it.</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#4a5b6d]">Start with a preliminary check or review what each service includes. We’ll make the scope and price clear before you decide whether to proceed.</p>
           </div>
-          <div className="space-y-3">
-            <h4 className="text-lg font-bold text-white border-b border-brand-cyan/20 pb-2">You're not locked into anything.</h4>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
-              Our entry-level audit is a one-time purchase. One report, one payment. No monthly contracts, no ongoing fees unless you want them. Start with the report and decide from there.
-            </p>
-          </div>
-          <div className="space-y-3">
-            <h4 className="text-lg font-bold text-white border-b border-brand-cyan/20 pb-2">The results are measurable.</h4>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
-              After we fix things, we run the audit again. You see the before and after side by side. You don't have to take our word for it. The number either moves or it doesn't.
-            </p>
+          <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <Link href="/contact?service=Free%20Preliminary%20Check" className="btn-primary px-6 py-3 text-center">Request a free check</Link>
+            <Link href="/pricing" className="btn-secondary px-6 py-3 text-center">See pricing</Link>
           </div>
         </div>
-      </section>
-
-      
-      <section className="glass p-8 md:p-12 rounded-xl text-center max-w-4xl mx-auto space-y-6 border border-brand-cyan/20">
-        <h2 className="text-3xl font-bold uppercase tracking-wider text-brand-cyan">Find Out Where You Stand — At No Cost</h2>
-        <p className="text-white/70 max-w-xl mx-auto font-light leading-relaxed text-sm">
-          Enter your website address and we'll send you a free one-page summary of your AI visibility score and your three most urgent gaps. No sales call. No credit card. Just the answer.
-        </p>
-        <Link href="/contact" className="w-full block px-8 py-4 bg-brand-cyan text-brand-navy font-bold tracking-wider uppercase rounded hover:bg-white hover:text-brand-navy hover:shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300">
-          Get My Free Visibility Check
-        </Link>
-        <p className="text-xs text-white/35 uppercase tracking-widest">
-          Results delivered within 24 hours. Used by businesses in 30+ countries.
-        </p>
       </section>
     </div>
   );

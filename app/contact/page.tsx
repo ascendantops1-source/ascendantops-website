@@ -1,167 +1,143 @@
 'use client';
 
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
+
+type Intake = {
+  business_name: string;
+  email: string;
+  phone: string;
+  website: string;
+  industry: string;
+  city: string;
+  message: string;
+};
+
+const emptyIntake: Intake = { business_name: '', email: '', phone: '', website: '', industry: '', city: '', message: '' };
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    businessName: '',
-    websiteUrl: '',
-    email: '',
-    phone: '',
-    serviceNeeded: 'Free Preliminary Check',
-    additionalNotes: '',
-  });
+  const [form, setForm] = useState<Intake>(emptyIntake);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [formError, setFormError] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('service');
+    if (requested) setForm((current) => ({ ...current, message: `I’m interested in: ${requested}` }));
+  }, []);
+
+  function update<K extends keyof Intake>(field: K, value: Intake[K]) {
+    setForm((current) => ({ ...current, [field]: value }));
+    if (status !== 'idle') setStatus('idle');
+    setFormError('');
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setStatus('loading');
     try {
-      const response = await fetch('https://your-n8n-url.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({
-          name: '',
-          businessName: '',
-          websiteUrl: '',
-          email: '',
-          phone: '',
-          serviceNeeded: 'Free Preliminary Check',
-          additionalNotes: '',
-        });
-      } else {
+      const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
+      if (!endpoint) {
+        setFormError('This contact form is not connected yet. Your details are still here. Please call us for now at');
         setStatus('error');
+        return;
       }
-    } catch (error) {
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!response.ok) throw new Error('Unable to save inquiry');
+      setStatus('success');
+      setForm(emptyIntake);
+    } catch {
+      setFormError('We couldn’t send your note just now. Your details are still here—please try again or call');
       setStatus('error');
     }
-  };
+  }
 
   return (
-    <div className="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-      
-      <div className="space-y-8">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Acquire Your <span className="text-brand-cyan">Preliminary Check</span>
-        </h1>
-        <p className="text-white/70 text-lg font-light leading-relaxed">
-          Fill out the form below. We will run our AI visibility scanner on your site. Then we send your preliminary report card.
-        </p>
-        
-        <div className="relative h-64 md:h-80 rounded-lg overflow-hidden border border-white/5 shadow-[0_0_30px_rgba(0,210,255,0.05)]">
-          <img src="/aria-env.png" alt="ARIA Server Environment" className="w-full h-full object-cover" />
-        </div>
-
-        <div className="space-y-6">
-          <div className="flex gap-4 items-start">
-            <div className="w-10 h-10 rounded bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(0,210,255,0.1)]">
-              <svg className="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <div>
-              <h4 className="font-bold text-white text-sm uppercase tracking-wide">100% Secure & Off-Grid</h4>
-              <p className="text-white/60 text-xs font-light mt-1">We do not store or sell your domain metrics.</p>
-            </div>
+    <div className="bg-white text-[#101d2c]">
+      <section className="mx-auto grid max-w-7xl items-start gap-12 px-6 py-14 md:px-12 md:py-20 lg:grid-cols-12 lg:gap-16">
+        <div className="space-y-7 lg:sticky lg:top-28 lg:col-span-5">
+          <div className="label">A straightforward first step</div>
+          <h1 className="font-editorial text-5xl leading-tight sm:text-6xl">Tell us what you’re looking for.</h1>
+          <p className="text-lg leading-relaxed text-[#4a5b6d]">A few details are enough to help us point you to the right service. No lengthy questionnaire or commitment.</p>
+          <div className="rounded-3xl border border-[#c7eaf0] bg-[#e9f8fb] p-6">
+            <p className="text-xs font-bold uppercase tracking-[.14em] text-[#007f9b]">Prefer to speak first?</p>
+            <a href="tel:+14374753637" className="mt-2 inline-block text-xl font-semibold text-[#101d2c] underline decoration-[#00a9cc]/60 underline-offset-4">+1 437 475 3637</a>
           </div>
-        </div>
-      </div>
-
-      
-      <div className="glass p-8 rounded-lg shadow-[0_0_30px_rgba(0,210,255,0.02)]">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          
-          <div>
-            <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Your Name</label>
-            <input type="text" required className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Business Name</label>
-              <input type="text" required className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan" value={formData.businessName} onChange={(e) => setFormData({ ...formData, businessName: e.target.value })} />
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Website URL</label>
-              <input type="url" required className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan" value={formData.websiteUrl} onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })} />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Email Address</label>
-              <input type="email" required className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Phone Number</label>
-              <input type="tel" required className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
-            </div>
-          </div>
-
-          
-          <div>
-            <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Audit Scope / Service Needed</label>
-            <select
-              className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan appearance-none"
-              value={formData.serviceNeeded}
-              onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
-            >
-              <option value="Free Preliminary Check">Free Preliminary Check ($0)</option>
-              <optgroup label="GEO Audit Services" className="bg-brand-dark text-white">
-                <option value="GEO Audit (Basic - $150)">GEO Audit (Basic - $150)</option>
-                <option value="Technical Implementation (Standard - $500)">Technical Implementation (Standard - $500)</option>
-                <option value="Sovereign Transformation (Premium - $1,500)">Sovereign Transformation (Premium - $1,500)</option>
-              </optgroup>
-              <optgroup label="AI Business Assessments" className="bg-brand-dark text-white">
-                <option value="AI Business Assessment ($500-$1,000)">AI Business Assessment ($500-$1,000)</option>
-              </optgroup>
-              <optgroup label="Capital & Benefit Audit" className="bg-brand-dark text-white">
-                <option value="Government + Tax Discovery ($297)">Government + Tax Discovery ($297)</option>
-                <option value="Technology Benefits Discovery ($197)">Technology Benefits Discovery ($197)</option>
-                <option value="Complete Capital Audit ($397)">Complete Capital Audit ($397)</option>
-                <option value="Guided Application Service ($497)">Guided Application Service ($497)</option>
-                <option value="Full Application Stack ($997)">Full Application Stack ($997)</option>
-                <option value="Ongoing Benefit Monitoring ($99/mo)">Ongoing Benefit Monitoring ($99/mo)</option>
-              </optgroup>
-              <optgroup label="Sovereign AI Retainers" className="bg-brand-dark text-white">
-                <option value="Competitor Monitoring ($299/mo)">Competitor Monitoring ($299/mo)</option>
-                <option value="Autopilot Stack ($299/mo)">Autopilot Stack ($299/mo)</option>
-                <option value="GEO Monitoring ($299/mo)">GEO Monitoring ($299/mo)</option>
-                <option value="Sovereign Bundle ($699/mo)">The Sovereign Bundle ($699/mo)</option>
-              </optgroup>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs uppercase tracking-widest text-brand-cyan mb-2 font-bold">Additional Notes / Custom Requests</label>
-            <textarea
-              rows={3}
-              className="w-full bg-brand-dark border border-white/10 rounded p-3 text-sm text-white focus:outline-none focus:border-brand-cyan resize-none"
-              placeholder="Describe your current software bottlenecks, custom requirements, or timeline goals here..."
-              value={formData.additionalNotes}
-              onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
+          <figure className="overflow-hidden rounded-3xl border border-[#d7e0e6] bg-[#f3f8fa] shadow-[0_18px_45px_-35px_rgba(16,29,44,.4)]">
+            <img
+              src="/aria-contact-office.png"
+              alt="Aria, AscendantOps’ AI virtual assistant, in a bright modern office"
+              className="aspect-[16/9] w-full object-cover object-center"
             />
-          </div>
+            <figcaption className="flex items-center justify-between gap-3 px-5 py-4">
+              <span className="font-semibold text-[#101d2c]">Aria</span>
+              <span className="rounded-full bg-[#e3f7fa] px-3 py-1 text-xs font-semibold text-[#007f9b]">AI virtual assistant</span>
+            </figcaption>
+          </figure>
+          <p className="text-sm leading-relaxed text-[#647587]">Already know what you need? Most services have a direct checkout on the pricing page. This form is for a question or a little guidance first.</p>
+        </div>
 
-          <button 
-            type="submit" 
-            disabled={status === 'loading'} 
-            className="w-full py-4 bg-brand-cyan text-brand-navy font-bold tracking-wider uppercase rounded hover:bg-white hover:text-brand-navy transition-all duration-300"
-          >
-            {status === 'loading' 
-              ? 'Processing...' 
-              : formData.serviceNeeded === 'Free Preliminary Check' 
-                ? 'Request Free Preliminary Check' 
-                : 'Submit Inquiry'}
-          </button>
-        </form>
-      </div>
+        <div className="rounded-[2rem] border border-[#d7e0e6] bg-white p-6 shadow-[0_22px_55px_-40px_rgba(16,29,44,.35)] sm:p-9 lg:col-span-6 lg:col-start-7">
+          {status === 'success' ? (
+            <div role="status" className="py-8">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e9f8fb] text-xl font-bold text-[#0089a6]" aria-hidden="true">✓</span>
+              <h2 className="mt-6 font-editorial text-3xl">Thanks. We have your details.</h2>
+              <p className="mt-3 leading-relaxed text-[#647587]">We’ll follow up at the email address you provided. If you need to speak sooner, call <a href="tel:+14374753637" className="font-semibold text-[#007f9b] underline underline-offset-4">+1 437 475 3637</a>.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="mb-2"><h2 className="font-editorial text-3xl">A short note is plenty.</h2><p className="mt-2 text-sm text-[#647587]">Fields marked * are required.</p></div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                <label htmlFor="intake-business" className="mb-2 block text-sm font-semibold">Business name *</label>
+                  <input id="intake-business" autoComplete="organization" required maxLength={160} value={form.business_name} onChange={(event) => update('business_name', event.target.value)} className="w-full p-3 text-sm" />
+                </div>
+                <div>
+                  <label htmlFor="intake-email" className="mb-2 block text-sm font-semibold">Email address *</label>
+                  <input id="intake-email" type="email" autoComplete="email" required maxLength={254} value={form.email} onChange={(event) => update('email', event.target.value)} className="w-full p-3 text-sm" />
+                </div>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="intake-phone" className="mb-2 block text-sm font-semibold">Phone <span className="font-normal text-[#758493]">(optional)</span></label>
+                  <input id="intake-phone" type="tel" autoComplete="tel" maxLength={40} value={form.phone} onChange={(event) => update('phone', event.target.value)} className="w-full p-3 text-sm" />
+                </div>
+                <div>
+                  <label htmlFor="intake-website" className="mb-2 block text-sm font-semibold">Website <span className="font-normal text-[#758493]">(optional)</span></label>
+                  <input id="intake-website" type="url" inputMode="url" placeholder="https://" maxLength={500} value={form.website} onChange={(event) => update('website', event.target.value)} className="w-full p-3 text-sm" />
+                </div>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="intake-industry" className="mb-2 block text-sm font-semibold">Industry <span className="font-normal text-[#758493]">(optional)</span></label>
+                  <input id="intake-industry" maxLength={120} value={form.industry} onChange={(event) => update('industry', event.target.value)} className="w-full p-3 text-sm" />
+                </div>
+                <div>
+                  <label htmlFor="intake-city" className="mb-2 block text-sm font-semibold">City <span className="font-normal text-[#758493]">(optional)</span></label>
+                  <input id="intake-city" autoComplete="address-level2" maxLength={120} value={form.city} onChange={(event) => update('city', event.target.value)} className="w-full p-3 text-sm" />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="intake-message" className="mb-2 block text-sm font-semibold">What would you like help with? <span className="font-normal text-[#758493]">(optional)</span></label>
+                <textarea id="intake-message" rows={3} maxLength={2000} value={form.message} onChange={(event) => update('message', event.target.value)} placeholder="One or two sentences is enough." className="w-full resize-y p-3 text-sm" />
+              </div>
+
+              {status === 'error' && <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{formError} <a href="tel:+14374753637" className="font-semibold underline">+1 437 475 3637</a>.</p>}
+              <button type="submit" disabled={status === 'loading'} className="btn-primary w-full px-6 py-4 disabled:cursor-wait disabled:opacity-60">{status === 'loading' ? 'Sending…' : 'Send my note'}</button>
+              <p className="text-center text-xs leading-relaxed text-[#758493]">We’ll use these details to respond to your inquiry.</p>
+            </form>
+          )}
+        </div>
+      </section>
     </div>
   );
 }
