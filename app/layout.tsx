@@ -33,6 +33,24 @@ export default function RootLayout({
     "@id": "https://ascendantops.com/#organization",
     "url": "https://ascendantops.com",
     "telephone": "+1-437-475-3637",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Toronto",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.6532,
+      "longitude": -79.3832
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "United Kingdom" },
+      { "@type": "Country", "name": "Australia" }
+    ],
     "sameAs": [
       "https://www.linkedin.com/in/ascendant-ops-0228a7439"
     ]
