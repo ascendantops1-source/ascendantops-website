@@ -17,6 +17,29 @@ export const metadata: Metadata = {
       en: "https://ascendantops.com",
     },
   },
+  openGraph: {
+    type: "website",
+    url: "https://ascendantops.com",
+    siteName: "AscendantOps",
+    title: "AscendantOps — Helping Your Business Get Found by AI",
+    description:
+      "Independent AI visibility reviews and practical business advice. See what selected AI search tools say about your business and decide what to do next.",
+    images: [
+      {
+        url: "https://ascendantops.com/ascendant-wordmark.png",
+        width: 118,
+        height: 28,
+        alt: "AscendantOps",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AscendantOps — Helping Your Business Get Found by AI",
+    description:
+      "Independent AI visibility reviews and practical business advice. See what selected AI search tools say about your business and decide what to do next.",
+    images: ["https://ascendantops.com/ascendant-wordmark.png"],
+  },
 };
 
 export default function RootLayout({
@@ -56,12 +79,30 @@ export default function RootLayout({
     ]
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ascendantops.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI visibility", "item": "https://ascendantops.com/services/geo" },
+      { "@type": "ListItem", "position": 3, "name": "Assessments", "item": "https://ascendantops.com/services/assessment" },
+      { "@type": "ListItem", "position": 4, "name": "Retainers", "item": "https://ascendantops.com/services/recurring" },
+      { "@type": "ListItem", "position": 5, "name": "Benchmarks", "item": "https://ascendantops.com/benchmarks" },
+      { "@type": "ListItem", "position": 6, "name": "About", "item": "https://ascendantops.com/about" },
+      { "@type": "ListItem", "position": 7, "name": "Contact", "item": "https://ascendantops.com/contact" }
+    ]
+  };
+
   return (
     <html lang="en">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
       </head>
       <body className="bg-brand-navy text-white antialiased min-h-screen flex flex-col">

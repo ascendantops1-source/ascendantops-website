@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RoiCalculator from "../components/RoiCalculator";
 import ReportPreview from "../components/ReportPreview";
+import HomeFaq from "../components/HomeFaq";
 
 const steps = [
   {
@@ -160,6 +161,8 @@ export default function Home() {
         </div>
         <p className="mx-auto mt-5 max-w-2xl text-center text-xs leading-relaxed text-[#8492a0]">This is an estimate to help you think through the opportunity. Your actual results will depend on your market and business.</p>
       </section>
+
+      <HomeFaq />
 
       <section className="mx-auto max-w-7xl px-6 pb-10 md:px-12">
         <div className="relative overflow-hidden rounded-[2rem] bg-[#e9f8fb] px-7 py-12 text-[#101d2c] sm:px-12 md:py-16">
